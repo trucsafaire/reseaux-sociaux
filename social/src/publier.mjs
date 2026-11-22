@@ -80,7 +80,7 @@ async function attendrePret(id) {
 // Jeton de la page : soit un jeton de page dédié (META_PAGE_TOKEN_ALLIER…),
 // soit — recommandé — le jeton unique de l'utilisateur système (META_TOKEN),
 // à partir duquel on récupère le jeton de chaque page et son compte Instagram lié.
-async function jetonDePage(page) {
+export async function jetonDePage(page) {
   const secrets = process.env.SECRETS_JSON ? JSON.parse(process.env.SECRETS_JSON) : process.env;
   const dedie = secrets["META_PAGE_TOKEN_" + page.id.toUpperCase().replace(/-/g, "_")] || secrets.META_PAGE_TOKEN;
   const fb = page.meta?.page_id;
@@ -137,4 +137,18 @@ export async function publier(pub, options) {
   const pilote = (process.env.PILOTE || "postiz").toLowerCase();
   if (pilote === "meta") return publierMeta(pub, options);
   return publierPostiz(pub, options);
+}
+
+// Vérifie, sans rien publier, que le jeton donne bien accès à la page et à son Instagram.
+export async function verifierMeta(page) {
+  const { jeton, fb, ig } = await jetonDePage(page);
+  const r = await fetch(`${GRAPH}/${fb}?fields=name,tasks&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
+  if (r.error) throw new Error(r.error.message);
+  let compte = "aucun Instagram relié";
+  if (ig) {
+    const i = await fetch(`${GRAPH}/${ig}?fields=username&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
+    if (i.error) throw new Error("Instagram : " + i.error.message);
+    compte = "@" + i.username;
+  }
+  return `page « ${r.name} » + ${compte}`;
 }

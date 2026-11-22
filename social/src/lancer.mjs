@@ -2,6 +2,7 @@
 // Point d'entrée. Une page = un département (voir « pages » dans config.json).
 //   node social/src/lancer.mjs preparer   [--jour AAAA-MM-JJ] [--format week-end] [--page allier]
 //   node social/src/lancer.mjs publier    [--page allier] [--forcer]
+//   node social/src/lancer.mjs verifier   [--page allier]   teste l'accès Meta sans rien publier
 //   node social/src/lancer.mjs semaine    [--jour …] [--page …]   aperçu des 7 prochains jours, sans rien publier
 //   node social/src/lancer.mjs classement                          quels départements ont assez de sorties pour une page ?
 import { readFileSync, writeFileSync, existsSync, rmSync } from "node:fs";
@@ -11,7 +12,7 @@ import { aujourdhui, ajouterJours, jourSemaine, ecartJours, instant } from "./ou
 import { chargerSorties, selectionner, cleSerie } from "./selection.mjs";
 import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
-import { publier } from "./publier.mjs";
+import { publier, verifierMeta } from "./publier.mjs";
 
 const ICI = dirname(dirname(fileURLToPath(import.meta.url)));   // social/
 const DEPOT = dirname(ICI);
@@ -77,6 +78,9 @@ if (commande === "preparer") {
     const pub = await preparer(page, jour, format, join(SORTIE, page.id), histo[page.id] || {});
     console.log(`Préparé ${page.id} : ${pub.format} (${pub.sorties.length} sorties, ${pub.images.length} images)`);
   });
+
+} else if (commande === "verifier") {
+  await pourChaquePage(async (page) => console.log(`✓ ${page.id} : ${await verifierMeta(page)}`));
 
 } else if (commande === "publier") {
   const maintenant = Date.now();

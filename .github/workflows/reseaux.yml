@@ -66,6 +66,9 @@ jobs:
           cd /tmp/r && git init -q -b reseaux && git add -A
           git -c user.name="trucsafaire-bot" -c user.email="alertes@trucsafaire.fr" commit -qm "Publication du $(date +%F)"
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" reseaux
+      - name: Vérifier l'accès Meta (essai)
+        if: ${{ inputs.essai && env.PILOTE == 'meta' }}
+        run: node social/src/lancer.mjs verifier $PAGE
       - name: Publier
         if: ${{ !cancelled() && !inputs.essai }}
         run: node social/src/lancer.mjs publier $PAGE
