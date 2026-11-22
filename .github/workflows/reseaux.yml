@@ -35,16 +35,16 @@ jobs:
       PAGE: ${{ inputs.page && format('--page {0}', inputs.page) || '' }}
       URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/reseaux
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Récupérer les sorties (dépôt du site)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: trucsafaire/sorties-bourbonnais-loire
           path: site
           sparse-checkout: data
           token: ${{ secrets.ACCES_SITE || github.token }}
       - run: mv site/data data && rm -rf site
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
       - name: Outils
         run: |
@@ -82,5 +82,5 @@ jobs:
           git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" reseaux
       - name: Garder une copie (30 jours)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with: { name: publication, path: social/sortie/, retention-days: 30, if-no-files-found: ignore }

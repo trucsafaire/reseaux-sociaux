@@ -142,7 +142,7 @@ export async function publier(pub, options) {
 // Vérifie, sans rien publier, que le jeton donne bien accès à la page et à son Instagram.
 export async function verifierMeta(page) {
   const { jeton, fb, ig } = await jetonDePage(page);
-  const r = await fetch(`${GRAPH}/${fb}?fields=name,tasks&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
+  const r = await fetch(`${GRAPH}/${fb}?fields=name&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
   if (r.error) throw new Error(r.error.message);
   let compte = "aucun Instagram relié";
   if (ig) {
