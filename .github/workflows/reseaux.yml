@@ -31,7 +31,7 @@ jobs:
       POSTIZ_API_URL: ${{ secrets.POSTIZ_API_URL }}
       POSTIZ_API_KEY: ${{ secrets.POSTIZ_API_KEY }}
       # Pilote « meta » seulement : secret META_TOKEN (utilisateur système « Publieur »)
-      SECRETS_JSON: ${{ vars.PILOTE == 'meta' && toJSON(secrets) || '' }}
+      META_TOKEN: ${{ secrets.META_TOKEN }}
       PAGE: ${{ inputs.page && format('--page {0}', inputs.page) || '' }}
       URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/reseaux
     steps:
