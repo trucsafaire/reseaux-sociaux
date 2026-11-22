@@ -1,0 +1,24 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-24",
+  "format": "coup-de-coeur",
+  "demande": "coup-de-coeur",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-24-coup-de-coeur/2026-11-24-saone-et-loire-01.png"
+  ],
+  "legendes": {
+    "instagram": "À noter dans l’agenda :\n\nThe Marvellous Dudes - reprises blues-rock\n📍 Espace Jean-Luc Popelin 208 Rue de l'Eglise, Iguerande\n🗓 Vendredi 4 déc.\n\n\n\nHoraires, adresses et itinéraires sur trucsafaire.fr (lien dans la bio).\nTaguez la personne qui vient avec vous 👇\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #Iguerande",
+    "facebook": "À noter dans l’agenda :\n\nThe Marvellous Dudes - reprises blues-rock\n📍 Espace Jean-Luc Popelin 208 Rue de l'Eglise, Iguerande\n🗓 Vendredi 4 déc.\n\n\n\n👉 Toutes les infos : https://trucsafaire.fr/#sortie=dt-e26697e9-41da-3033-a929-99221922daa4\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#sortie=dt-e26697e9-41da-3033-a929-99221922daa4"
+  },
+  "sorties": [
+    {
+      "id": "dt-e26697e9-41da-3033-a929-99221922daa4",
+      "cle": "the marvellous dudes reprises blues rock iguerande",
+      "serie": "the marvellous dudes",
+      "t": "The Marvellous Dudes - reprises blues-rock",
+      "s": "2026-12-04",
+      "w": "Iguerande"
+    }
+  ]
+}

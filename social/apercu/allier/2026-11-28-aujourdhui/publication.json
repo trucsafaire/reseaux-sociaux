@@ -1,0 +1,71 @@
+{
+  "page": "allier",
+  "jour": "2026-11-28",
+  "format": "aujourdhui",
+  "demande": "aujourdhui",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-28-aujourdhui/2026-11-28-allier-08.png"
+  ],
+  "legendes": {
+    "instagram": "Encore rien de prévu aujourd’hui ? Il est temps :\n\n▸ Portes ouvertes \"Venez visiter vos nouvelles urgences\"\n   Samedi 28 nov. · Moulins\n\n▸ Après-midi bien-être\n   Samedi 28 nov. · Avermes\n\n▸ Paseo de noche\n   Samedi 28 nov. · Vichy\n\n▸ Échangeons nos savoirs : Initiation à la graphologie - exercices pratiques\n   Samedi 28 nov. · Montluçon\n\n▸ Mon P'tit marché de Noël\n   Samedi 28 nov. · Contigny\n\n▸ Bal traditionnel \"Gallica Trio\"\n   Samedi 28 nov. · Neuvy\n\nHoraires, adresses et itinéraires sur trucsafaire.fr (lien dans la bio).\nEnregistrez le post pour l’avoir sous la main le jour J.\n\n#TrucsAFaire #QueFaire #Sorties #Allier #SortiesAllier #Moulins #Avermes #Vichy #Montluçon",
+    "facebook": "Encore rien de prévu aujourd’hui ? Il est temps :\n\n▸ Portes ouvertes \"Venez visiter vos nouvelles urgences\"\n   Samedi 28 nov. · Moulins\n\n▸ Après-midi bien-être\n   Samedi 28 nov. · Avermes\n\n▸ Paseo de noche\n   Samedi 28 nov. · Vichy\n\n▸ Échangeons nos savoirs : Initiation à la graphologie - exercices pratiques\n   Samedi 28 nov. · Montluçon\n\n▸ Mon P'tit marché de Noël\n   Samedi 28 nov. · Contigny\n\n▸ Bal traditionnel \"Gallica Trio\"\n   Samedi 28 nov. · Neuvy\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=03\n\n#TrucsAFaire #QueFaire #Sorties #Allier",
+    "lien": "https://trucsafaire.fr/#dep=03"
+  },
+  "sorties": [
+    {
+      "id": "dt-134e1578-d0bf-3d3b-b0af-b321374596f2",
+      "cle": "portes ouvertes venez visiter vos nouvelles urgences moulins",
+      "serie": "portes ouvertes venez visiter vos nouvelles urgences",
+      "t": "Portes ouvertes \"Venez visiter vos nouvelles urgences\"",
+      "s": "2026-11-28",
+      "w": "Moulins"
+    },
+    {
+      "id": "dt-620c4eca-e826-3b87-a6c5-01fb473f4945",
+      "cle": "apres midi bien etre avermes",
+      "serie": "apres midi bien etre",
+      "t": "Après-midi bien-être",
+      "s": "2026-11-28",
+      "w": "Avermes"
+    },
+    {
+      "id": "dt-3b149362-a632-34d5-adfe-3954a7ca56ec",
+      "cle": "paseo de noche vichy",
+      "serie": "paseo de noche",
+      "t": "Paseo de noche",
+      "s": "2026-11-28",
+      "w": "Vichy"
+    },
+    {
+      "id": "dt-440e2fce-7d81-3e94-90fc-a32124cb3780",
+      "cle": "echangeons nos savoirs initiation a la graphologie exercices pratiques montlucon",
+      "serie": "echangeons nos savoirs",
+      "t": "Échangeons nos savoirs : Initiation à la graphologie - exercices pratiques",
+      "s": "2026-11-28",
+      "w": "Montluçon"
+    },
+    {
+      "id": "dt-70e139fb-f469-3c48-8bb0-25b530ad043d",
+      "cle": "mon p tit marche de noel contigny",
+      "serie": "mon p tit marche de noel",
+      "t": "Mon P'tit marché de Noël",
+      "s": "2026-11-28",
+      "w": "Contigny"
+    },
+    {
+      "id": "dt-a3c85c37-6e58-3012-97a1-fe1f6aaa7388",
+      "cle": "bal traditionnel gallica trio neuvy",
+      "serie": "bal traditionnel gallica trio",
+      "t": "Bal traditionnel \"Gallica Trio\"",
+      "s": "2026-11-28",
+      "w": "Neuvy"
+    }
+  ]
+}

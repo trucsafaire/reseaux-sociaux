@@ -1,0 +1,53 @@
+{
+  "page": "nievre",
+  "jour": "2026-11-25",
+  "format": "famille",
+  "demande": "famille",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-25-famille/2026-11-25-nievre-06.png"
+  ],
+  "legendes": {
+    "instagram": "Mercredi, c’est le jour des enfants. Des idées pour sortir en famille cette semaine :\n\n▸ Journée intergénérationnelle\n   Mercredi 25 nov. · Surgy\n\n▸ Animations mensuelles : Ludique and Ludic - Bar à jeux de société\n   Jeudi 26 nov. · Nevers\n\n▸ Les Petites Oreilles\n   Vendredi 27 nov. · Saint-Honoré-les-Bains\n\n▸ Les Bébés lecteurs\n   Mercredi 2 déc. · Clamecy\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nVous organisez une sortie ? Ajoutez-la gratuitement sur trucsafaire.fr.\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre #SortiesNièvre #Nevers #Surgy #Clamecy #SortieEnFamille",
+    "facebook": "Mercredi, c’est le jour des enfants. Des idées pour sortir en famille cette semaine :\n\n▸ Journée intergénérationnelle\n   Mercredi 25 nov. · Surgy\n\n▸ Animations mensuelles : Ludique and Ludic - Bar à jeux de société\n   Jeudi 26 nov. · Nevers\n\n▸ Les Petites Oreilles\n   Vendredi 27 nov. · Saint-Honoré-les-Bains\n\n▸ Les Bébés lecteurs\n   Mercredi 2 déc. · Clamecy\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=58\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre",
+    "lien": "https://trucsafaire.fr/#dep=58"
+  },
+  "sorties": [
+    {
+      "id": "dt-a7ea953b-1f85-334c-ad90-2394448087ff",
+      "cle": "journee intergenerationnelle surgy",
+      "serie": "journee intergenerationnelle",
+      "t": "Journée intergénérationnelle",
+      "s": "2026-11-25",
+      "w": "Surgy"
+    },
+    {
+      "id": "dt-33090f9a-9013-3cc7-8c8f-648dc7d05afc",
+      "cle": "animations mensuelles ludique and ludic bar a jeux de societe nevers",
+      "serie": "animations mensuelles",
+      "t": "Animations mensuelles : Ludique and Ludic - Bar à jeux de société",
+      "s": "2026-11-26",
+      "w": "Nevers"
+    },
+    {
+      "id": "dt-4b365b03-758e-3e1b-8987-437fb6fb9d66",
+      "cle": "les petites oreilles saint honore les bains",
+      "serie": "les petites oreilles",
+      "t": "Les Petites Oreilles",
+      "s": "2026-11-27",
+      "w": "Saint-Honoré-les-Bains"
+    },
+    {
+      "id": "dt-f83c2e27-5862-3024-9301-2e95d440ea2f",
+      "cle": "les bebes lecteurs clamecy",
+      "serie": "les bebes lecteurs",
+      "t": "Les Bébés lecteurs",
+      "s": "2026-12-02",
+      "w": "Clamecy"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "page": "allier",
+  "jour": "2026-11-26",
+  "format": "week-end",
+  "demande": "week-end",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-26-week-end/2026-11-26-allier-08.png"
+  ],
+  "legendes": {
+    "instagram": "Le week-end approche. Voici 6 bonnes raisons de sortir :\n\n▸ Apéro Littéraire\n   Vendredi 27 nov. · Dompierre-sur-Besbre\n\n▸ Soirée Latino\n   Vendredi 27 nov. · Moulins\n\n▸ Animation accords desserts et bières\n   Samedi 28 nov. · Cesset\n\n▸ Café de la médiathèque\n   Samedi 28 nov. · Montluçon\n\n▸ Déclic Repair d'octobre à l'Atallier FabLab\n   Samedi 28 nov. · Avermes\n\n▸ Le brunch du Grand-Marché\n   Dimanche 29 nov. · Vichy\n\nHoraires, adresses et itinéraires sur trucsafaire.fr (lien dans la bio).\nEnregistrez ce post pour ne rien oublier, et partagez-le à ceux qui viendront avec vous.\n\n#TrucsAFaire #QueFaire #Sorties #Allier #SortiesAllier #Moulins #DompierreSurBesbre #Cesset #Montluçon",
+    "facebook": "Le week-end approche. Voici 6 bonnes raisons de sortir :\n\n▸ Apéro Littéraire\n   Vendredi 27 nov. · Dompierre-sur-Besbre\n\n▸ Soirée Latino\n   Vendredi 27 nov. · Moulins\n\n▸ Animation accords desserts et bières\n   Samedi 28 nov. · Cesset\n\n▸ Café de la médiathèque\n   Samedi 28 nov. · Montluçon\n\n▸ Déclic Repair d'octobre à l'Atallier FabLab\n   Samedi 28 nov. · Avermes\n\n▸ Le brunch du Grand-Marché\n   Dimanche 29 nov. · Vichy\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=03\n\n#TrucsAFaire #QueFaire #Sorties #Allier",
+    "lien": "https://trucsafaire.fr/#dep=03"
+  },
+  "sorties": [
+    {
+      "id": "dt-f06951ba-4b2a-34d9-9fc9-e05f838597f5",
+      "cle": "apero litteraire dompierre sur besbre",
+      "serie": "apero litteraire",
+      "t": "Apéro Littéraire",
+      "s": "2026-11-27",
+      "w": "Dompierre-sur-Besbre"
+    },
+    {
+      "id": "dt-f254a41d-5d93-3342-a334-5d70663e823c",
+      "cle": "soiree latino moulins",
+      "serie": "soiree latino",
+      "t": "Soirée Latino",
+      "s": "2026-11-27",
+      "w": "Moulins"
+    },
+    {
+      "id": "dt-cb5021a6-a809-3002-942d-2e41f6163473",
+      "cle": "animation accords desserts et bieres cesset",
+      "serie": "animation accords desserts et bieres",
+      "t": "Animation accords desserts et bières",
+      "s": "2026-11-28",
+      "w": "Cesset"
+    },
+    {
+      "id": "dt-eb7d725f-c746-3927-bd9f-7e8189a52381",
+      "cle": "cafe de la mediatheque montlucon",
+      "serie": "cafe de la mediatheque",
+      "t": "Café de la médiathèque",
+      "s": "2026-11-28",
+      "w": "Montluçon"
+    },
+    {
+      "id": "dt-f348db41-500c-3281-bd99-a22731c71809",
+      "cle": "declic repair d octobre a l atallier fablab avermes",
+      "serie": "declic repair d octobre a l atallier fablab",
+      "t": "Déclic Repair d'octobre à l'Atallier FabLab",
+      "s": "2026-11-28",
+      "w": "Avermes"
+    },
+    {
+      "id": "dt-04e2ac31-b5ce-3b14-955c-ab70604f34d5",
+      "cle": "le brunch du grand marche vichy",
+      "serie": "le brunch du grand marche",
+      "t": "Le brunch du Grand-Marché",
+      "s": "2026-11-29",
+      "w": "Vichy"
+    }
+  ]
+}

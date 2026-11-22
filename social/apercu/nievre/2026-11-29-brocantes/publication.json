@@ -1,0 +1,24 @@
+{
+  "page": "nievre",
+  "jour": "2026-11-29",
+  "format": "coup-de-coeur",
+  "demande": "brocantes",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-29-brocantes/2026-11-29-nievre-01.png"
+  ],
+  "legendes": {
+    "instagram": "Notre coup de cœur des prochains jours :\n\nDe Vienne aux brumes d'Écosse\n📍 La Maison, Maison de la culture de Nevers agglomération, Nevers\n🗓 Dimanche 6 déc., 17 h\n\nOrchestre Symphonique des Concerts Nivernais / Claudine Bonodot-Martin / Céline Mata\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nTaguez la personne qui vient avec vous 👇\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre #SortiesNièvre #Nevers",
+    "facebook": "Notre coup de cœur des prochains jours :\n\nDe Vienne aux brumes d'Écosse\n📍 La Maison, Maison de la culture de Nevers agglomération, Nevers\n🗓 Dimanche 6 déc., 17 h\n\nOrchestre Symphonique des Concerts Nivernais / Claudine Bonodot-Martin / Céline Mata\n\n👉 Toutes les infos : https://trucsafaire.fr/#sortie=oa-87613881\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre",
+    "lien": "https://trucsafaire.fr/#sortie=oa-87613881"
+  },
+  "sorties": [
+    {
+      "id": "oa-87613881",
+      "cle": "de vienne aux brumes d ecosse nevers",
+      "serie": "de vienne aux brumes d ecosse",
+      "t": "De Vienne aux brumes d'Écosse",
+      "s": "2026-12-06",
+      "w": "Nevers"
+    }
+  ]
+}

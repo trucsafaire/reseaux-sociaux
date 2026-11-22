@@ -1,0 +1,71 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-28",
+  "format": "aujourdhui",
+  "demande": "aujourdhui",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-28-aujourdhui/2026-11-28-saone-et-loire-08.png"
+  ],
+  "legendes": {
+    "instagram": "Aujourd’hui, samedi 28 novembre, ça se passe ici :\n\n▸ Portes Ouvertes à la Maison André Delorme\n   Du 27 au 29 novembre · Rully\n\n▸ Concert de la Sainte Cécile 2026\n   Samedi 28 nov. · Cluny\n\n▸ Thibault Cauvin en concert\n   Samedi 28 nov. · Chalon-sur-Saône\n\n▸ Dédicace Patrice Studer\n   Samedi 28 nov. · Le Creusot\n\n▸ Travail artisanal du cuir : Ceinture\n   Samedi 28 nov. · Mâcon\n\n▸ Préparez Noël chez Cérambois\n   Du 28 au 29 novembre · Saint-Gengoux-le-National\n\nLe détail de chaque sortie est sur trucsafaire.fr (lien dans la bio).\nEnregistrez le post pour l’avoir sous la main le jour J.\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #Rully #Cluny #LeCreusot",
+    "facebook": "Aujourd’hui, samedi 28 novembre, ça se passe ici :\n\n▸ Portes Ouvertes à la Maison André Delorme\n   Du 27 au 29 novembre · Rully\n\n▸ Concert de la Sainte Cécile 2026\n   Samedi 28 nov. · Cluny\n\n▸ Thibault Cauvin en concert\n   Samedi 28 nov. · Chalon-sur-Saône\n\n▸ Dédicace Patrice Studer\n   Samedi 28 nov. · Le Creusot\n\n▸ Travail artisanal du cuir : Ceinture\n   Samedi 28 nov. · Mâcon\n\n▸ Préparez Noël chez Cérambois\n   Du 28 au 29 novembre · Saint-Gengoux-le-National\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=71\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#dep=71"
+  },
+  "sorties": [
+    {
+      "id": "dt-fcdf825d-7124-3549-b171-4d6b647127d2",
+      "cle": "portes ouvertes a la maison andre delorme rully",
+      "serie": "portes ouvertes a la maison andre delorme",
+      "t": "Portes Ouvertes à la Maison André Delorme",
+      "s": "2026-11-27",
+      "w": "Rully"
+    },
+    {
+      "id": "dt-9bb01a16-ea59-3724-908e-b753ce267c58",
+      "cle": "concert de la sainte cecile 2026 cluny",
+      "serie": "concert de la sainte cecile 2026",
+      "t": "Concert de la Sainte Cécile 2026",
+      "s": "2026-11-28",
+      "w": "Cluny"
+    },
+    {
+      "id": "dt-1506ba53-893b-35b3-b9bd-c5c4644a669d",
+      "cle": "thibault cauvin en concert chalon sur saone",
+      "serie": "thibault cauvin en concert",
+      "t": "Thibault Cauvin en concert",
+      "s": "2026-11-28",
+      "w": "Chalon-sur-Saône"
+    },
+    {
+      "id": "dt-48a3a17c-1ee8-3811-94a3-1101dfe508cd",
+      "cle": "dedicace patrice studer le creusot",
+      "serie": "dedicace patrice studer",
+      "t": "Dédicace Patrice Studer",
+      "s": "2026-11-28",
+      "w": "Le Creusot"
+    },
+    {
+      "id": "dt-79077157-3566-39cf-9850-184b7f21c62d",
+      "cle": "travail artisanal du cuir ceinture macon",
+      "serie": "travail artisanal du cuir",
+      "t": "Travail artisanal du cuir : Ceinture",
+      "s": "2026-11-28",
+      "w": "Mâcon"
+    },
+    {
+      "id": "dt-858334df-aec2-3e22-92f5-28dc93e84760",
+      "cle": "preparez noel chez cerambois saint gengoux le national",
+      "serie": "preparez noel chez cerambois",
+      "t": "Préparez Noël chez Cérambois",
+      "s": "2026-11-28",
+      "w": "Saint-Gengoux-le-National"
+    }
+  ]
+}

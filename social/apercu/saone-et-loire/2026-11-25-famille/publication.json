@@ -1,0 +1,71 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-25",
+  "format": "famille",
+  "demande": "famille",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-25-famille/2026-11-25-saone-et-loire-08.png"
+  ],
+  "legendes": {
+    "instagram": "Envie de sortir avec les enfants ? 6 idées près de chez vous :\n\n▸ Jeux de société à La Clayette\n   Mercredi 25 nov. · Chauffailles\n\n▸ Animations de novembre au Vent dans les fleurs\n   Jeudi 26 nov. · Montcenis\n\n▸ Défi les ptits explorateurs\n   Jeudi 26 nov. · Saint-Martin-en-Bresse\n\n▸ Activités à la médiathèque : Bébés lecteurs pour les tout-petits\n   Vendredi 27 nov. · Tournus\n\n▸ Matinée Fitness : Thème Jeux\n   Samedi 28 nov. · Mâcon\n\n▸ Journée d'initiation à la mosaïque contemporaine avec Elisabeth Ragon\n   Dimanche 29 nov. · Paray-le-Monial\n\nLe détail de chaque sortie est sur trucsafaire.fr (lien dans la bio).\nEnregistrez ce post pour ne rien oublier, et partagez-le à ceux qui viendront avec vous.\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #Chauffailles #Montcenis #Tournus #SortieEnFamille",
+    "facebook": "Envie de sortir avec les enfants ? 6 idées près de chez vous :\n\n▸ Jeux de société à La Clayette\n   Mercredi 25 nov. · Chauffailles\n\n▸ Animations de novembre au Vent dans les fleurs\n   Jeudi 26 nov. · Montcenis\n\n▸ Défi les ptits explorateurs\n   Jeudi 26 nov. · Saint-Martin-en-Bresse\n\n▸ Activités à la médiathèque : Bébés lecteurs pour les tout-petits\n   Vendredi 27 nov. · Tournus\n\n▸ Matinée Fitness : Thème Jeux\n   Samedi 28 nov. · Mâcon\n\n▸ Journée d'initiation à la mosaïque contemporaine avec Elisabeth Ragon\n   Dimanche 29 nov. · Paray-le-Monial\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=71\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#dep=71"
+  },
+  "sorties": [
+    {
+      "id": "dt-674962f3-b3e8-37af-87fb-1c9cf7bbc9fb",
+      "cle": "jeux de societe a la clayette chauffailles",
+      "serie": "jeux de societe a la clayette",
+      "t": "Jeux de société à La Clayette",
+      "s": "2026-11-25",
+      "w": "Chauffailles"
+    },
+    {
+      "id": "dt-2d7387f5-a7bd-37be-9c01-a7e2e48a8b74",
+      "cle": "animations de novembre au vent dans les fleurs montcenis",
+      "serie": "animations de novembre au vent dans les fleurs",
+      "t": "Animations de novembre au Vent dans les fleurs",
+      "s": "2026-11-26",
+      "w": "Montcenis"
+    },
+    {
+      "id": "dt-e379c1ca-2309-3601-8d5c-5ded5e6a3885",
+      "cle": "defi les ptits explorateurs saint martin en bresse",
+      "serie": "defi les ptits explorateurs",
+      "t": "Défi les ptits explorateurs",
+      "s": "2026-11-26",
+      "w": "Saint-Martin-en-Bresse"
+    },
+    {
+      "id": "dt-ef4f0c5c-7a08-337a-b77f-7e5e4dc3795f",
+      "cle": "activites a la mediatheque bebes lecteurs pour les tout petits tournus",
+      "serie": "activites a la mediatheque",
+      "t": "Activités à la médiathèque : Bébés lecteurs pour les tout-petits",
+      "s": "2026-11-27",
+      "w": "Tournus"
+    },
+    {
+      "id": "dt-dc4717ee-39f1-3be7-86cc-794eac84d876",
+      "cle": "matinee fitness theme jeux macon",
+      "serie": "matinee fitness",
+      "t": "Matinée Fitness : Thème Jeux",
+      "s": "2026-11-28",
+      "w": "Mâcon"
+    },
+    {
+      "id": "dt-225a0323-2ba3-32d9-9b7d-86270df0eee5",
+      "cle": "journee d initiation a la mosaique contemporaine avec elisabeth ragon paray le monial",
+      "serie": "journee d initiation a la mosaique contemporaine avec elisabeth ragon",
+      "t": "Journée d'initiation à la mosaïque contemporaine avec Elisabeth Ragon",
+      "s": "2026-11-29",
+      "w": "Paray-le-Monial"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-29",
+  "format": "brocantes",
+  "demande": "brocantes",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-29-brocantes/2026-11-29-saone-et-loire-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-29-brocantes/2026-11-29-saone-et-loire-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-29-brocantes/2026-11-29-saone-et-loire-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-29-brocantes/2026-11-29-saone-et-loire-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-29-brocantes/2026-11-29-saone-et-loire-05.png"
+  ],
+  "legendes": {
+    "instagram": "Chineurs, à vos agendas ! Les brocantes et bourses des prochains jours :\n\n▸ Bourse aux vélos 2026\n   Du 5 au 7 décembre · Chalon-sur-Saône\n\n▸ Brocante mensuelle de Givry\n   Dimanche 6 déc. · Givry\n\n▸ Puces des Quais\n   Dimanche 6 déc. · Tournus\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nTaguez la personne qui vient avec vous 👇\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #Givry #Tournus #Brocante #VideGrenier",
+    "facebook": "Chineurs, à vos agendas ! Les brocantes et bourses des prochains jours :\n\n▸ Bourse aux vélos 2026\n   Du 5 au 7 décembre · Chalon-sur-Saône\n\n▸ Brocante mensuelle de Givry\n   Dimanche 6 déc. · Givry\n\n▸ Puces des Quais\n   Dimanche 6 déc. · Tournus\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=71\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#dep=71"
+  },
+  "sorties": [
+    {
+      "id": "dt-31ac04ea-4255-3dc2-beca-dd95a1097029",
+      "cle": "bourse aux velos 2026 chalon sur saone",
+      "serie": "bourse aux velos 2026",
+      "t": "Bourse aux vélos 2026",
+      "s": "2026-12-05",
+      "w": "Chalon-sur-Saône"
+    },
+    {
+      "id": "dt-f2fbe9c7-e93a-3faa-8895-82d99dcaa0b2",
+      "cle": "brocante mensuelle de givry givry",
+      "serie": "brocante mensuelle de givry",
+      "t": "Brocante mensuelle de Givry",
+      "s": "2026-12-06",
+      "w": "Givry"
+    },
+    {
+      "id": "dt-d9dd65a0-8186-3372-9906-511ceb10b6d7",
+      "cle": "puces des quais tournus",
+      "serie": "puces des quais",
+      "t": "Puces des Quais",
+      "s": "2026-12-06",
+      "w": "Tournus"
+    }
+  ]
+}

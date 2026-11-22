@@ -1,0 +1,83 @@
+name: Réseaux sociaux (publication automatique)
+# Chaque matin : pour chaque page départementale active (social/config.json), choisit les sorties, fabrique
+# les visuels et les légendes, puis les programme dans Postiz à l'heure de la page (heures décalées).
+# Rien n'est enregistré sur main : l'historique (anti-doublons) et les images du jour vivent sur la branche « reseaux ».
+# En cas d'échec, GitHub envoie un e-mail : c'est la seule chose à surveiller. Voir social/LISEZMOI.md.
+on:
+  schedule:
+    - cron: "13 6 * * *"    # 7 h 13 en hiver, 8 h 13 en été (heure de Paris) ; la publication suit l'heure de chaque page
+  workflow_dispatch:
+    inputs:
+      page:
+        description: "Une seule page (ex. allier) ; vide = toutes les pages actives"
+        required: false
+      format:
+        description: "Forcer un format (semaine, coup-de-coeur, famille, week-end, gratuit, aujourdhui, brocantes)"
+        required: false
+      essai:
+        description: "Essai : préparer sans publier"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency: { group: reseaux, cancel-in-progress: false }
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PILOTE: ${{ vars.PILOTE || 'postiz' }}
+      MODE_PUBLICATION: ${{ vars.MODE_PUBLICATION || 'direct' }}
+      POSTIZ_API_URL: ${{ secrets.POSTIZ_API_URL }}
+      POSTIZ_API_KEY: ${{ secrets.POSTIZ_API_KEY }}
+      # Pilote « meta » seulement : secret META_TOKEN (utilisateur système « Publieur »)
+      SECRETS_JSON: ${{ vars.PILOTE == 'meta' && toJSON(secrets) || '' }}
+      PAGE: ${{ inputs.page && format('--page {0}', inputs.page) || '' }}
+      URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/reseaux
+    steps:
+      - uses: actions/checkout@v4
+      - name: Récupérer les sorties (dépôt du site)
+        uses: actions/checkout@v4
+        with:
+          repository: trucsafaire/sorties-bourbonnais-loire
+          path: site
+          sparse-checkout: data
+          token: ${{ secrets.ACCES_SITE || github.token }}
+      - run: mv site/data data && rm -rf site
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
+      - name: Outils
+        run: |
+          cd social && npm ci --no-audit --no-fund
+          if [ "$PILOTE" = "postiz" ]; then npm i -g postiz --no-audit --no-fund; fi
+      - name: Récupérer l'historique
+        run: |
+          if git fetch -q origin reseaux 2>/dev/null; then
+            git show origin/reseaux:historique.json > social/historique.json 2>/dev/null || true
+          fi
+      - name: Préparer la publication du jour
+        run: node social/src/lancer.mjs preparer $PAGE ${{ inputs.format && format('--format {0}', inputs.format) || '' }}
+      - name: Mettre les images en ligne (branche reseaux)
+        if: ${{ !cancelled() }}   # une page en échec ne bloque pas les autres
+        run: |
+          # Une seule révision, remplacée chaque jour : le dépôt ne grossit pas.
+          rm -rf /tmp/r && mkdir /tmp/r && cp social/sortie/*/*.png /tmp/r/ 2>/dev/null || true
+          [ -f social/historique.json ] && cp social/historique.json /tmp/r/ || echo '{}' > /tmp/r/historique.json
+          cd /tmp/r && git init -q -b reseaux && git add -A
+          git -c user.name="trucsafaire-bot" -c user.email="alertes@trucsafaire.fr" commit -qm "Publication du $(date +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" reseaux
+      - name: Publier
+        if: ${{ !cancelled() && !inputs.essai }}
+        run: node social/src/lancer.mjs publier $PAGE
+      - name: Enregistrer l'historique
+        if: ${{ always() && !inputs.essai }}   # même si une page a échoué, on garde ce que les autres ont publié
+        run: |
+          [ -d /tmp/r/.git ] && [ -f social/historique.json ] || exit 0
+          cp social/historique.json /tmp/r/historique.json
+          cd /tmp/r && git add -A
+          git -c user.name="trucsafaire-bot" -c user.email="alertes@trucsafaire.fr" commit -qm "Historique du $(date +%F)" || exit 0
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" reseaux
+      - name: Garder une copie (30 jours)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: publication, path: social/sortie/, retention-days: 30, if-no-files-found: ignore }

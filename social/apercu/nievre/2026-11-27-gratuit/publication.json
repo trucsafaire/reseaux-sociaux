@@ -1,0 +1,24 @@
+{
+  "page": "nievre",
+  "jour": "2026-11-27",
+  "format": "coup-de-coeur",
+  "demande": "gratuit",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-27-gratuit/2026-11-27-nievre-01.png"
+  ],
+  "legendes": {
+    "instagram": "Notre coup de cœur des prochains jours :\n\nLa Forêt brûle... et alors ?\n📍 Médiathèque Jean Jaurès, Nevers\n🗓 Vendredi 4 déc., 18 h 30 · gratuit\n\nUn spectacle littéraire à ne pas manquer, dans le cadre du festival GRANDS CHEMINS porté par la Cité du Mot.\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nEnregistrez ce post pour ne rien oublier, et partagez-le à ceux qui viendront avec vous.\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre #SortiesNièvre #Nevers",
+    "facebook": "Notre coup de cœur des prochains jours :\n\nLa Forêt brûle... et alors ?\n📍 Médiathèque Jean Jaurès, Nevers\n🗓 Vendredi 4 déc., 18 h 30 · gratuit\n\nUn spectacle littéraire à ne pas manquer, dans le cadre du festival GRANDS CHEMINS porté par la Cité du Mot.\n\n👉 Toutes les infos : https://trucsafaire.fr/#sortie=oa-36908539\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre",
+    "lien": "https://trucsafaire.fr/#sortie=oa-36908539"
+  },
+  "sorties": [
+    {
+      "id": "oa-36908539",
+      "cle": "la foret brule et alors nevers",
+      "serie": "la foret brule et alors",
+      "t": "La Forêt brûle... et alors ?",
+      "s": "2026-12-04",
+      "w": "Nevers"
+    }
+  ]
+}

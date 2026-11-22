@@ -1,0 +1,71 @@
+{
+  "page": "allier",
+  "jour": "2026-11-23",
+  "format": "semaine",
+  "demande": "semaine",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-23-semaine/2026-11-23-allier-08.png"
+  ],
+  "legendes": {
+    "instagram": "Pas d’idée pour cette semaine ? En voici 6, près de chez vous :\n\n▸ La Maison des femmes\n   Lundi 23 nov. · Ferrières-sur-Sichon\n\n▸ Récital piano violoncelle\n   Vendredi 27 nov. · Moulins\n\n▸ Bib'en Jeux – Découverte de nouveaux jeux de société\n   Samedi 28 nov. · Gannat\n\n▸ Rando célibataires — Le Chemin des Murailles\n   Samedi 28 nov., 9 h 30 · Chouvigny\n\n▸ 14e BOURSE COLLECTIONS Jouets et Miniatures\n   Dimanche 29 nov. · Dompierre-sur-Besbre\n\n▸ Rando — Le Moulin Parraut\n   Dimanche 29 nov., 10 h · Charroux\n\nHoraires, adresses et itinéraires sur trucsafaire.fr (lien dans la bio).\nTaguez la personne qui vient avec vous 👇\n\n#TrucsAFaire #QueFaire #Sorties #Allier #SortiesAllier #Moulins #FerrièresSurSichon #Gannat #Chouvigny",
+    "facebook": "Pas d’idée pour cette semaine ? En voici 6, près de chez vous :\n\n▸ La Maison des femmes\n   Lundi 23 nov. · Ferrières-sur-Sichon\n\n▸ Récital piano violoncelle\n   Vendredi 27 nov. · Moulins\n\n▸ Bib'en Jeux – Découverte de nouveaux jeux de société\n   Samedi 28 nov. · Gannat\n\n▸ Rando célibataires — Le Chemin des Murailles\n   Samedi 28 nov., 9 h 30 · Chouvigny\n\n▸ 14e BOURSE COLLECTIONS Jouets et Miniatures\n   Dimanche 29 nov. · Dompierre-sur-Besbre\n\n▸ Rando — Le Moulin Parraut\n   Dimanche 29 nov., 10 h · Charroux\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=03\n\n#TrucsAFaire #QueFaire #Sorties #Allier",
+    "lien": "https://trucsafaire.fr/#dep=03"
+  },
+  "sorties": [
+    {
+      "id": "dt-1f97df9e-d1d5-3d5e-a14e-7d9071ef3314",
+      "cle": "la maison des femmes ferrieres sur sichon",
+      "serie": "la maison des femmes",
+      "t": "La Maison des femmes",
+      "s": "2026-11-23",
+      "w": "Ferrières-sur-Sichon"
+    },
+    {
+      "id": "dt-59a0b97b-6b04-3434-b87a-1e989693af63",
+      "cle": "recital piano violoncelle moulins",
+      "serie": "recital piano violoncelle",
+      "t": "Récital piano violoncelle",
+      "s": "2026-11-27",
+      "w": "Moulins"
+    },
+    {
+      "id": "dt-01974982-0bd4-3a69-9278-5866b668ee17",
+      "cle": "bib en jeux decouverte de nouveaux jeux de societe gannat",
+      "serie": "bib en jeux",
+      "t": "Bib'en Jeux – Découverte de nouveaux jeux de société",
+      "s": "2026-11-28",
+      "w": "Gannat"
+    },
+    {
+      "id": "oa-86033847",
+      "cle": "rando celibataires le chemin des murailles chouvigny",
+      "serie": "rando celibataires",
+      "t": "Rando célibataires — Le Chemin des Murailles",
+      "s": "2026-11-28",
+      "w": "Chouvigny"
+    },
+    {
+      "id": "dt-99370ac4-a506-3704-8726-044c04e6a0e1",
+      "cle": "14e bourse collections jouets et miniatures dompierre sur besbre",
+      "serie": "14e bourse collections jouets et miniatures",
+      "t": "14e BOURSE COLLECTIONS Jouets et Miniatures",
+      "s": "2026-11-29",
+      "w": "Dompierre-sur-Besbre"
+    },
+    {
+      "id": "oa-84532967",
+      "cle": "rando le moulin parraut charroux",
+      "serie": "rando",
+      "t": "Rando — Le Moulin Parraut",
+      "s": "2026-11-29",
+      "w": "Charroux"
+    }
+  ]
+}

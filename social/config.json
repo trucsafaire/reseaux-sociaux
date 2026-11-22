@@ -1,0 +1,123 @@
+{
+  "_lisezmoi": "Réglages de la page autonome Trucs à faire. Voir social/LISEZMOI.md.",
+  "marque": "Trucs à faire",
+  "site": "https://trucsafaire.fr",
+  "fuseau": "Europe/Paris",
+  "_pages": "Une page = un département. actif:false tant que les comptes ne sont pas créés et connectés dans Postiz. heure = heure de publication (Paris) : décalez-les pour ne pas tout publier en même temps.",
+  "pages": [
+    {
+      "id": "allier",
+      "actif": true,
+      "departement": "03",
+      "nom": "l’Allier",
+      "heure": "11:30",
+      "hashtags": [
+        "#Allier",
+        "#SortiesAllier",
+        "#Moulins",
+        "#Vichy",
+        "#Montluçon"
+      ],
+      "postiz": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "meta": {
+        "page_id": "1477710012089584",
+        "ig_user_id": ""
+      }
+    },
+    {
+      "id": "nievre",
+      "actif": false,
+      "departement": "58",
+      "nom": "la Nièvre",
+      "heure": "12:10",
+      "hashtags": [
+        "#Nièvre",
+        "#SortiesNièvre",
+        "#Nevers",
+        "#Decize",
+        "#Cosne"
+      ],
+      "postiz": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "meta": {
+        "page_id": "",
+        "ig_user_id": ""
+      }
+    },
+    {
+      "id": "saone-et-loire",
+      "actif": false,
+      "departement": "71",
+      "nom": "la Saône-et-Loire",
+      "heure": "12:50",
+      "hashtags": [
+        "#SaôneEtLoire",
+        "#Mâcon",
+        "#ChalonSurSaône",
+        "#ParayLeMonial",
+        "#Digoin"
+      ],
+      "postiz": {
+        "instagram": "",
+        "facebook": ""
+      },
+      "meta": {
+        "page_id": "",
+        "ig_user_id": ""
+      }
+    }
+  ],
+  "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
+  "planning": {
+    "_note": "Un format par jour (1 = lundi … 7 = dimanche). Formats : semaine, coup-de-coeur, famille, week-end, gratuit, aujourdhui, brocantes.",
+    "1": "semaine",
+    "2": "coup-de-coeur",
+    "3": "famille",
+    "4": "week-end",
+    "5": "gratuit",
+    "6": "aujourdhui",
+    "7": "brocantes"
+  },
+  "sorties_par_carrousel": 6,
+  "sans_repetition_jours": 45,
+  "serie_pause_jours": 7,
+  "reseaux": [
+    "instagram",
+    "facebook"
+  ],
+  "hashtags_fixes": [
+    "#TrucsAFaire",
+    "#QueFaire",
+    "#Sorties"
+  ],
+  "exclure_titres": [
+    "^march[ée]s? (hebdomadaire|du |de |des |bio|nocturne|de producteurs)",
+    "^march[ée]$",
+    "permanence",
+    "^réunion",
+    "^cours ",
+    "assemblée générale",
+    "^\\[?atelier",
+    "^visite guidée( de| du)? (la|le) ville",
+    "^messe",
+    "^conseil municipal",
+    "webinaire",
+    "visio",
+    "en ligne",
+    "studio photo",
+    "^formation",
+    "^permanence",
+    "^portes? ouvertes? (de la|du) (mairie|déchetterie)"
+  ],
+  "exclure_descriptions": [
+    "webinaire",
+    "visioconférence",
+    "en distanciel",
+    "réservé aux (adhérents|membres|professionnels)"
+  ]
+}

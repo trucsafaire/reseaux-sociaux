@@ -1,0 +1,71 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-26",
+  "format": "week-end",
+  "demande": "week-end",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-26-week-end/2026-11-26-saone-et-loire-08.png"
+  ],
+  "legendes": {
+    "instagram": "Ce week-end, du 27 au 29 novembre, on sort ! Notre sélection :\n\n▸ Les Arts du Vieux Temple : Inès CRAPONNIER - CECILESKI\n   Vendredi 27 nov. · Charnay-lès-Mâcon\n\n▸ Fête Lumières & Créations Artisanales\n   Vendredi 27 nov. · Mont-Saint-Vincent\n\n▸ Elections des Reines de Chagny 2027 : COMPLET\n   Samedi 28 nov. · Chagny\n\n▸ Rando célibataires — Découverte des trois sommets du Morvan : Beuvray - Préneley - Haut Folin\n   Samedi 28 nov., 9 h 30 · Saint-Léger-sous-Beuvray\n\n▸ Tablée plein air au feu de bois\n   Dimanche 29 nov. · Château\n\n▸ Le Théâtre de la Mère Folle / Funérailles d'hiver d'Hanokh Levin\n   Dimanche 29 nov. · Givry\n\nLe détail de chaque sortie est sur trucsafaire.fr (lien dans la bio).\nTaguez la personne qui vient avec vous 👇\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #CharnayLèsMâcon #MontSaintVincent #Chagny",
+    "facebook": "Ce week-end, du 27 au 29 novembre, on sort ! Notre sélection :\n\n▸ Les Arts du Vieux Temple : Inès CRAPONNIER - CECILESKI\n   Vendredi 27 nov. · Charnay-lès-Mâcon\n\n▸ Fête Lumières & Créations Artisanales\n   Vendredi 27 nov. · Mont-Saint-Vincent\n\n▸ Elections des Reines de Chagny 2027 : COMPLET\n   Samedi 28 nov. · Chagny\n\n▸ Rando célibataires — Découverte des trois sommets du Morvan : Beuvray - Préneley - Haut Folin\n   Samedi 28 nov., 9 h 30 · Saint-Léger-sous-Beuvray\n\n▸ Tablée plein air au feu de bois\n   Dimanche 29 nov. · Château\n\n▸ Le Théâtre de la Mère Folle / Funérailles d'hiver d'Hanokh Levin\n   Dimanche 29 nov. · Givry\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=71\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#dep=71"
+  },
+  "sorties": [
+    {
+      "id": "dt-f08a460d-571f-3b3a-89a7-4c3159f8a845",
+      "cle": "les arts du vieux temple ines craponnier cecileski charnay les macon",
+      "serie": "les arts du vieux temple",
+      "t": "Les Arts du Vieux Temple : Inès CRAPONNIER - CECILESKI",
+      "s": "2026-11-27",
+      "w": "Charnay-lès-Mâcon"
+    },
+    {
+      "id": "dt-32600cb8-a75e-3afc-9436-f80873f77aef",
+      "cle": "fete lumieres creations artisanales mont saint vincent",
+      "serie": "fete lumieres creations artisanales",
+      "t": "Fête Lumières & Créations Artisanales",
+      "s": "2026-11-27",
+      "w": "Mont-Saint-Vincent"
+    },
+    {
+      "id": "dt-774c2b34-e833-3773-b057-53f147014a14",
+      "cle": "elections des reines de chagny 2027 complet chagny",
+      "serie": "elections des reines de chagny 2027",
+      "t": "Elections des Reines de Chagny 2027 : COMPLET",
+      "s": "2026-11-28",
+      "w": "Chagny"
+    },
+    {
+      "id": "oa-80926841",
+      "cle": "rando celibataires decouverte des trois sommets du morvan beuvray preneley haut folin saint leger sous beuvray",
+      "serie": "rando celibataires",
+      "t": "Rando célibataires — Découverte des trois sommets du Morvan : Beuvray - Préneley - Haut Folin",
+      "s": "2026-11-28",
+      "w": "Saint-Léger-sous-Beuvray"
+    },
+    {
+      "id": "dt-53c704dc-cf8f-31ff-810b-7f056b126bf4",
+      "cle": "tablee plein air au feu de bois chateau",
+      "serie": "tablee plein air au feu de bois",
+      "t": "Tablée plein air au feu de bois",
+      "s": "2026-11-29",
+      "w": "Château"
+    },
+    {
+      "id": "dt-0d558469-54ae-3271-b09e-7ede19ba4107",
+      "cle": "le theatre de la mere folle funerailles d hiver d hanokh levin givry",
+      "serie": "le theatre de la mere folle funerailles d hiver d hanokh levin",
+      "t": "Le Théâtre de la Mère Folle / Funérailles d'hiver d'Hanokh Levin",
+      "s": "2026-11-29",
+      "w": "Givry"
+    }
+  ]
+}

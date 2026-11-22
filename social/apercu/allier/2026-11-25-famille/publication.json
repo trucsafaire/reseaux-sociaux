@@ -1,0 +1,71 @@
+{
+  "page": "allier",
+  "jour": "2026-11-25",
+  "format": "famille",
+  "demande": "famille",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/allier/2026-11-25-famille/2026-11-25-allier-08.png"
+  ],
+  "legendes": {
+    "instagram": "Petits et grands, voici de quoi occuper la semaine :\n\n▸ Lectures pour les petits\n   Mercredi 25 nov. · Yzeure\n\n▸ Stand up et débat\n   Vendredi 27 nov. · Neuvy\n\n▸ À vos manettes : Jeux vidéo\n   Samedi 28 nov. · Montluçon\n\n▸ Soirée Anniversaire du FCM rugby 120 ans\n   Samedi 28 nov. · Moulins\n\n▸ La Ronde des Compagnons – 25ème édition\n   Dimanche 29 nov. · Saint-Pourçain-sur-Sioule\n\n▸ Jouons ensemble : spécial fêtes de fin d’année\n   Mercredi 2 déc. · Domérat\n\nHoraires, adresses et itinéraires sur trucsafaire.fr (lien dans la bio).\nEnregistrez le post pour l’avoir sous la main le jour J.\n\n#TrucsAFaire #QueFaire #Sorties #Allier #SortiesAllier #Moulins #Yzeure #Neuvy #Montluçon #SortieEnFamille",
+    "facebook": "Petits et grands, voici de quoi occuper la semaine :\n\n▸ Lectures pour les petits\n   Mercredi 25 nov. · Yzeure\n\n▸ Stand up et débat\n   Vendredi 27 nov. · Neuvy\n\n▸ À vos manettes : Jeux vidéo\n   Samedi 28 nov. · Montluçon\n\n▸ Soirée Anniversaire du FCM rugby 120 ans\n   Samedi 28 nov. · Moulins\n\n▸ La Ronde des Compagnons – 25ème édition\n   Dimanche 29 nov. · Saint-Pourçain-sur-Sioule\n\n▸ Jouons ensemble : spécial fêtes de fin d’année\n   Mercredi 2 déc. · Domérat\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=03\n\n#TrucsAFaire #QueFaire #Sorties #Allier",
+    "lien": "https://trucsafaire.fr/#dep=03"
+  },
+  "sorties": [
+    {
+      "id": "dt-de32791d-e8ce-3c0a-b5aa-6b735c4babdf",
+      "cle": "lectures pour les petits yzeure",
+      "serie": "lectures pour les petits",
+      "t": "Lectures pour les petits",
+      "s": "2026-11-25",
+      "w": "Yzeure"
+    },
+    {
+      "id": "dt-3cdf6c9e-65c3-3183-8204-9d0d7e2eb8c5",
+      "cle": "stand up et debat neuvy",
+      "serie": "stand up et debat",
+      "t": "Stand up et débat",
+      "s": "2026-11-27",
+      "w": "Neuvy"
+    },
+    {
+      "id": "dt-e2d34469-8892-3370-ab1c-a3fe269bdedf",
+      "cle": "a vos manettes jeux video montlucon",
+      "serie": "a vos manettes",
+      "t": "À vos manettes : Jeux vidéo",
+      "s": "2026-11-28",
+      "w": "Montluçon"
+    },
+    {
+      "id": "dt-ddbb612e-a43d-33b7-a40f-fea32b3bd583",
+      "cle": "soiree anniversaire du fcm rugby 120 ans moulins",
+      "serie": "soiree anniversaire du fcm rugby 120 ans",
+      "t": "Soirée Anniversaire du FCM rugby 120 ans",
+      "s": "2026-11-28",
+      "w": "Moulins"
+    },
+    {
+      "id": "dt-fddc61ab-43db-3097-a489-8dd2962f70d2",
+      "cle": "la ronde des compagnons 25eme edition saint pourcain sur sioule",
+      "serie": "la ronde des compagnons",
+      "t": "La Ronde des Compagnons – 25ème édition",
+      "s": "2026-11-29",
+      "w": "Saint-Pourçain-sur-Sioule"
+    },
+    {
+      "id": "dt-ff585f87-a02d-3adf-b77e-27abfbe4fe7b",
+      "cle": "jouons ensemble special fetes de fin d annee domerat",
+      "serie": "jouons ensemble",
+      "t": "Jouons ensemble : spécial fêtes de fin d’année",
+      "s": "2026-12-02",
+      "w": "Domérat"
+    }
+  ]
+}

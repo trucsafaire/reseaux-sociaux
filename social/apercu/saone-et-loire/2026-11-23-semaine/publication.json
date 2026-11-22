@@ -1,0 +1,71 @@
+{
+  "page": "saone-et-loire",
+  "jour": "2026-11-23",
+  "format": "semaine",
+  "demande": "semaine",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-01.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-02.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-03.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-04.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-05.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-06.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-07.png",
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/saone-et-loire/2026-11-23-semaine/2026-11-23-saone-et-loire-08.png"
+  ],
+  "legendes": {
+    "instagram": "Pas d’idée pour cette semaine ? En voici 6, près de chez vous :\n\n▸ Grande collecte photographique, en partenariat avec La Conserverie, un lieu d'archives\n   Lundi 23 nov., 14 h · Chalon-sur-Saône\n\n▸ Les ELLES de la forêt\n   Lundi 23 nov., 14 h · Mâcon · gratuit\n\n▸ Exposition Hervé Nègre\n   Mardi 24 nov. · Montceau-les-Mines\n\n▸ Apéro des randonneurs — Autun\n   Mardi 24 nov., 19 h · Autun\n\n▸ Loto\n   Jeudi 26 nov., 14 h · Viré\n\n▸ Rando — Sur les chemin de la Bourgogne-Sud dans le Maconnais\n   Dimanche 29 nov., 10 h · Chaintré\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nEnregistrez ce post pour ne rien oublier, et partagez-le à ceux qui viendront avec vous.\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire #Mâcon #ChalonSurSaône #MontceauLesMines #Autun",
+    "facebook": "Pas d’idée pour cette semaine ? En voici 6, près de chez vous :\n\n▸ Grande collecte photographique, en partenariat avec La Conserverie, un lieu d'archives\n   Lundi 23 nov., 14 h · Chalon-sur-Saône\n\n▸ Les ELLES de la forêt\n   Lundi 23 nov., 14 h · Mâcon · gratuit\n\n▸ Exposition Hervé Nègre\n   Mardi 24 nov. · Montceau-les-Mines\n\n▸ Apéro des randonneurs — Autun\n   Mardi 24 nov., 19 h · Autun\n\n▸ Loto\n   Jeudi 26 nov., 14 h · Viré\n\n▸ Rando — Sur les chemin de la Bourgogne-Sud dans le Maconnais\n   Dimanche 29 nov., 10 h · Chaintré\n\n👉 Toutes les infos : https://trucsafaire.fr/#dep=71\n\n#TrucsAFaire #QueFaire #Sorties #SaôneEtLoire",
+    "lien": "https://trucsafaire.fr/#dep=71"
+  },
+  "sorties": [
+    {
+      "id": "oa-79197309",
+      "cle": "grande collecte photographique en partenariat avec la conserverie un lieu d archives chalon sur saone",
+      "serie": "grande collecte photographique en partenariat avec la conserverie un lieu d archives",
+      "t": "Grande collecte photographique, en partenariat avec La Conserverie, un lieu d'archives",
+      "s": "2026-11-23",
+      "w": "Chalon-sur-Saône"
+    },
+    {
+      "id": "oa-41547978",
+      "cle": "les elles de la foret macon",
+      "serie": "les elles de la foret",
+      "t": "Les ELLES de la forêt",
+      "s": "2026-11-23",
+      "w": "Mâcon"
+    },
+    {
+      "id": "dt-9b510b58-fbfd-3718-8128-43d2f801f8f4",
+      "cle": "exposition herve negre montceau les mines",
+      "serie": "exposition herve negre",
+      "t": "Exposition Hervé Nègre",
+      "s": "2026-11-24",
+      "w": "Montceau-les-Mines"
+    },
+    {
+      "id": "oa-46284147",
+      "cle": "apero des randonneurs autun autun",
+      "serie": "apero des randonneurs",
+      "t": "Apéro des randonneurs — Autun",
+      "s": "2026-11-24",
+      "w": "Autun"
+    },
+    {
+      "id": "oa-25477721",
+      "cle": "loto vire",
+      "serie": "loto",
+      "t": "Loto",
+      "s": "2026-11-26",
+      "w": "Viré"
+    },
+    {
+      "id": "oa-90843993",
+      "cle": "rando sur les chemin de la bourgogne sud dans le maconnais chaintre",
+      "serie": "rando",
+      "t": "Rando — Sur les chemin de la Bourgogne-Sud dans le Maconnais",
+      "s": "2026-11-29",
+      "w": "Chaintré"
+    }
+  ]
+}

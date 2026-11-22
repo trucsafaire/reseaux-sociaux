@@ -1,0 +1,24 @@
+{
+  "page": "nievre",
+  "jour": "2026-11-24",
+  "format": "coup-de-coeur",
+  "demande": "coup-de-coeur",
+  "images": [
+    "/home/claude/trucsafaire/sorties-bourbonnais-loire/social/apercu/nievre/2026-11-24-coup-de-coeur/2026-11-24-nievre-01.png"
+  ],
+  "legendes": {
+    "instagram": "À noter dans l’agenda :\n\nLe béton, matériau décoratif ? - Les cours du Palais Cycle VI\n📍 Palais Ducal, Nevers\n🗓 Lundi 30 nov., 18 h 30\n\nUne conférence de Madame Claire Maingon, Professeure en histoire de l'art contemporain, Université Bourgogne Europe\n\nToutes les infos et des centaines d’autres sorties sur trucsafaire.fr, lien dans la bio.\nEnregistrez le post pour l’avoir sous la main le jour J.\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre #SortiesNièvre #Nevers",
+    "facebook": "À noter dans l’agenda :\n\nLe béton, matériau décoratif ? - Les cours du Palais Cycle VI\n📍 Palais Ducal, Nevers\n🗓 Lundi 30 nov., 18 h 30\n\nUne conférence de Madame Claire Maingon, Professeure en histoire de l'art contemporain, Université Bourgogne Europe\n\n👉 Toutes les infos : https://trucsafaire.fr/#sortie=oa-21584928\n\n#TrucsAFaire #QueFaire #Sorties #Nièvre",
+    "lien": "https://trucsafaire.fr/#sortie=oa-21584928"
+  },
+  "sorties": [
+    {
+      "id": "oa-21584928",
+      "cle": "le beton materiau decoratif les cours du palais cycle vi nevers",
+      "serie": "le beton materiau decoratif",
+      "t": "Le béton, matériau décoratif ? - Les cours du Palais Cycle VI",
+      "s": "2026-11-30",
+      "w": "Nevers"
+    }
+  ]
+}
