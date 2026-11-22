@@ -101,3 +101,14 @@ node src/lancer.mjs classement                   # départements classés par no
 ## Copier le système sur une autre appli
 
 Le moteur est générique : seuls changent la source des contenus (`selection.mjs`), les modèles de textes (`textes.mjs`), les couleurs et le logo (`visuels.mjs`) et `config.json`. Pour Bons Codes, ParcZen ou Salve, on duplique le dossier `social/` dans leur dépôt et on adapte ces quatre fichiers.
+
+
+## Page vitrine « Trucs à faire » (toute la France)
+
+La page globale ne publie pas de sorties : elle met en avant l'appli et la plateforme, trois fois par semaine (mardi, jeudi, samedi : `jours` dans `config.json`).
+Chaque publication est un visuel unique : un message, un écran de l'appli dans un iPhone, les badges App Store et Google Play, et un chiffre réel du jour quand il y en a un (« 15 740 sorties ce week-end »).
+
+- Le jeudi, c'est toujours « Que faire ce week-end ? » ; les autres jours, les messages tournent : carte, agenda, alertes, recherche, partout en France, organisateurs.
+- Les messages sont dans `social/src/vitrine.mjs` (`THEMES`) ; les écrans dans `marque/reseaux/vitrine/`.
+- Aperçu d'un message : `node social/src/lancer.mjs preparer --page trucsafaire --theme carte`.
+- Pour rafraîchir les écrans de l'appli (nouvelle version) : refaire les captures en mode clair (402 × 874, ×3) puis `python3 social/outils/maquettes.py marque/reseaux/apple-iphone-17-pro.png capture.png sortie.png`.

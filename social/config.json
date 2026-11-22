@@ -6,6 +6,23 @@
   "_pages": "Une page = un département. actif:false tant que les comptes ne sont pas créés et connectés dans Postiz. heure = heure de publication (Paris) : décalez-les pour ne pas tout publier en même temps.",
   "pages": [
     {
+      "id": "trucsafaire",
+      "type": "vitrine",
+      "actif": true,
+      "nom": "la France",
+      "_note": "Page vitrine : met en avant l'appli. jours = 2 mardi, 4 jeudi (toujours « que faire ce week-end »), 6 samedi.",
+      "jours": [
+        2,
+        4,
+        6
+      ],
+      "heure": "18:00",
+      "meta": {
+        "page_id": "1497772336754138",
+        "ig_user_id": ""
+      }
+    },
+    {
       "id": "allier",
       "actif": true,
       "departement": "03",

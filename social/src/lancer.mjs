@@ -13,6 +13,7 @@ import { chargerSorties, selectionner, cleSerie } from "./selection.mjs";
 import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
 import { publier, verifierMeta } from "./publier.mjs";
+import { preparerVitrine } from "./vitrine.mjs";
 
 const ICI = dirname(dirname(fileURLToPath(import.meta.url)));   // social/
 const DEPOT = dirname(ICI);
@@ -37,8 +38,20 @@ function pagesVisees() {
 }
 const configPage = (page) => ({ ...config, page });
 
-let atelier;
+let atelier, france;
+const estVitrine = (page) => page.type === "vitrine";
+const jourDePublication = (page, j) => !page.jours || page.jours.includes(jourSemaine(j));
+
 async function preparer(page, j, format, dossier, historique) {
+  if (estVitrine(page)) {
+    rmSync(dossier, { recursive: true, force: true });
+    france ??= chargerSorties(DONNEES, { departements: JSON.parse(readFileSync(join(DONNEES, "departements.json"), "utf8")).departements.map((d) => d.code) });
+    const pub = await preparerVitrine({ racine: DEPOT, toutes: france, jour: j, page, historique, dossier, theme: opt("theme") });
+    writeFileSync(join(dossier, "publication.json"), JSON.stringify(pub, null, 2));
+    writeFileSync(join(dossier, "instagram.txt"), pub.legendes.instagram);
+    writeFileSync(join(dossier, "facebook.txt"), pub.legendes.facebook);
+    return pub;
+  }
   const toutes = chargerSorties(DONNEES, { departements: [page.departement] });
   const cfg = configPage(page);
   const sel = selectionner({ toutes, jour: j, format, config: cfg, historique });
@@ -55,6 +68,7 @@ async function preparer(page, j, format, dossier, historique) {
 }
 
 function memoriser(h, pub) {
+  if (pub.theme) h["theme:" + pub.theme] = pub.jour;
   for (const e of pub.sorties) { h[e.cle] = pub.jour; h[e.id] = pub.jour; h["serie:" + e.serie] = pub.jour; }
 }
 function oublierVieux(h, j) {
@@ -75,6 +89,7 @@ if (commande === "preparer") {
   const histo = lireHisto();
   const format = opt("format") || config.planning[jourSemaine(jour)];
   await pourChaquePage(async (page) => {
+    if (!jourDePublication(page, jour) && !opt("page")) { rmSync(join(SORTIE, page.id), { recursive: true, force: true }); console.log(`${page.id} : pas de publication ce jour-là`); return; }
     const pub = await preparer(page, jour, format, join(SORTIE, page.id), histo[page.id] || {});
     console.log(`Préparé ${page.id} : ${pub.format} (${pub.sorties.length} sorties, ${pub.images.length} images)`);
   });
@@ -86,7 +101,7 @@ if (commande === "preparer") {
   const maintenant = Date.now();
   await pourChaquePage(async (page) => {
     const f = join(SORTIE, page.id, "publication.json");
-    if (!existsSync(f)) throw new Error("rien de préparé");
+    if (!existsSync(f)) { if (jourDePublication(page, jour) || opt("page")) throw new Error("rien de préparé"); return; }
     const pub = JSON.parse(readFileSync(f, "utf8"));
     const histo = lireHisto();
     const h = (histo[page.id] ??= {});
