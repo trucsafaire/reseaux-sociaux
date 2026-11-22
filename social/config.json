@@ -48,7 +48,7 @@
     },
     {
       "id": "nievre",
-      "actif": false,
+      "actif": true,
       "departement": "58",
       "nom": "la Nièvre",
       "heure": "12:10",
@@ -64,7 +64,7 @@
         "facebook": ""
       },
       "meta": {
-        "page_id": "",
+        "page_id": "1356353517572440",
         "ig_user_id": ""
       },
       "dans": "dans la Nièvre",
