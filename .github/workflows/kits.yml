@@ -1,0 +1,34 @@
+name: Visuels des pages départementales
+# Fabrique la photo de profil et la bannière Facebook de chaque département qui n'en a pas encore
+# (marque/reseaux/departements/<code>/), à partir de vraies captures du site, puis les enregistre sur main.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  kits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+      - name: Site Trucs à faire
+        uses: actions/checkout@v5
+        with: { repository: trucsafaire/sorties-bourbonnais-loire, path: site }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22 }
+      - name: Outils
+        run: |
+          cd social && npm ci --no-audit --no-fund && cd ..
+          pip install --quiet playwright pillow
+      - name: Visuels manquants
+        run: |
+          (cd site && python3 -m http.server 8765 >/dev/null 2>&1 &)
+          sleep 2
+          for c in $(cat social/ordre-departements.txt); do
+            [ -f marque/reseaux/departements/$c/couverture.png ] || python3 social/outils/kit.py $c || echo "! $c"
+          done
+      - name: Enregistrer
+        run: |
+          git add marque/reseaux/departements
+          git -c user.name="trucsafaire-bot" -c user.email="alertes@trucsafaire.fr" commit -qm "Visuels des pages départementales" || exit 0
+          git pull -q --rebase && git push -q
