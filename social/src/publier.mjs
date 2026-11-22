@@ -105,9 +105,9 @@ async function publierMeta(pub, { reseaux, page }) {
   if (!base) throw new Error("URL_IMAGES manquante (adresse publique des images)");
   const urls = pub.images.map((f) => `${base}/${basename(f)}`);
   const res = {};
-  if (reseaux.includes("instagram")) {
-    const ig = infos.ig;
-    if (!ig) throw new Error(`Page ${page.id} : aucun compte Instagram relié à la page`);
+  const ig = infos.ig;
+  if (reseaux.includes("instagram") && !ig) console.warn(`! ${page.id} : aucun compte Instagram relié à la page, Facebook seulement`);
+  if (reseaux.includes("instagram") && ig) {
     let conteneur;
     if (urls.length === 1) {
       conteneur = (await graph(`${ig}/media`, { image_url: urls[0], caption: pub.legendes.instagram })).id;
