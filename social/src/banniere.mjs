@@ -55,7 +55,10 @@ const arbre = h("div", { width: W, height: H, background: BLEU, position: "relat
   // texte à gauche : la photo de profil se pose au centre, en bas
   h("div", { position: "absolute", left: 70, top: 70, flexDirection: "column", width: 640 },
     img(uri(join(DEPOT, "marque", "logo-horizontal-blanc.svg")), { width: 360, height: 75 }),
-    h("div", { marginTop: 30, fontFamily: "Outfit", fontWeight: 700, fontSize: 56, lineHeight: 1.05 }, titre),
+    // « | » force le retour à la ligne (jamais au milieu d'un nom composé) ; la taille s'adapte à la plus longue ligne
+    h("div", { marginTop: 30, flexDirection: "column", fontFamily: "Outfit", fontWeight: 700, lineHeight: 1.05,
+      fontSize: Math.min(56, Math.floor(760 / (0.5 * Math.max(...titre.split("|").map((l) => l.length))))) },
+      titre.split("|").map((l) => h("div", { whiteSpace: "nowrap" }, l.trim()))),
     h("div", { marginTop: 14, fontSize: 28, opacity: 0.85 }, "Brocantes, fêtes, concerts, sorties en famille"),
     h("div", { marginTop: 34, alignItems: "center" },
       // Apple demande que son badge passe en premier

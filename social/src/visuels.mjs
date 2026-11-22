@@ -79,7 +79,7 @@ export class Atelier {
       h("div", { flexDirection: "column", marginTop: "auto" },
         h("div", { alignItems: "center", marginBottom: 14 },
           h("div", { background: CONFETTI, color: ENCRE, borderRadius: 14, padding: "4px 16px", fontFamily: "Outfit", fontWeight: 700, fontSize: 40, marginRight: 18 }, config.page.departement),
-          h("div", { fontSize: 46, fontWeight: 700 }, `Dans ${config.page.nom}`)),
+          h("div", { fontSize: 46, fontWeight: 700 }, majuscule(config.page.dans || `dans ${config.page.nom}`))),
         h("div", { fontFamily: "Outfit", fontWeight: 700, fontSize: F.titre.length > 16 ? 112 : F.titre.length > 9 ? 138 : 170, lineHeight: 1.0, letterSpacing: -3 }, F.titre),
         h("div", { marginTop: 36, alignSelf: "flex-start", alignItems: "center", background: "#fff", color: ENCRE, borderRadius: 999, padding: "18px 34px", fontSize: 40, fontWeight: 700 },
           h("div", { width: 18, height: 18, borderRadius: 99, background: CONFETTI, marginRight: 18 }), dates),

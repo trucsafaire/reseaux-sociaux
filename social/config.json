@@ -42,7 +42,9 @@
       "meta": {
         "page_id": "1477710012089584",
         "ig_user_id": ""
-      }
+      },
+      "dans": "dans l’Allier",
+      "instagram": "trucsafaire03"
     },
     {
       "id": "nievre",
@@ -64,7 +66,9 @@
       "meta": {
         "page_id": "",
         "ig_user_id": ""
-      }
+      },
+      "dans": "dans la Nièvre",
+      "instagram": "trucsafaire58"
     },
     {
       "id": "saone-et-loire",
@@ -86,19 +90,21 @@
       "meta": {
         "page_id": "",
         "ig_user_id": ""
-      }
+      },
+      "dans": "en Saône-et-Loire",
+      "instagram": "trucsafaire71"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
   "planning": {
-    "_note": "Un format par jour (1 = lundi … 7 = dimanche). Formats : semaine, coup-de-coeur, famille, week-end, gratuit, aujourdhui, brocantes.",
     "1": "semaine",
     "2": "coup-de-coeur",
     "3": "famille",
     "4": "week-end",
     "5": "gratuit",
     "6": "aujourdhui",
-    "7": "brocantes"
+    "7": "brocantes",
+    "_note": "Un format par jour (1 = lundi … 7 = dimanche). Formats : semaine, coup-de-coeur, famille, week-end, gratuit, aujourdhui, brocantes."
   },
   "sorties_par_carrousel": 6,
   "sans_repetition_jours": 45,

@@ -14,6 +14,7 @@ import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
 import { publier, verifierMeta } from "./publier.mjs";
 import { preparerVitrine } from "./vitrine.mjs";
+import { nouvellePage, textesProfil } from "./departements.mjs";
 
 const ICI = dirname(dirname(fileURLToPath(import.meta.url)));   // social/
 const DEPOT = dirname(ICI);
@@ -93,6 +94,17 @@ if (commande === "preparer") {
     const pub = await preparer(page, jour, format, join(SORTIE, page.id), histo[page.id] || {});
     console.log(`Préparé ${page.id} : ${pub.format} (${pub.sorties.length} sorties, ${pub.images.length} images)`);
   });
+
+} else if (commande === "ajouter-page") {
+  // node social/src/lancer.mjs ajouter-page 58 [--page-id 123] : ajoute (ou complète) la page d'un département
+  const code = reste.find((x) => !x.startsWith("--")) ;
+  let page = config.pages.find((p) => p.departement === code);
+  if (!page) { page = nouvellePage(code); config.pages.push(page); }
+  else page = Object.assign(page, { ...nouvellePage(code), ...page, dans: page.dans || nouvellePage(code).dans });
+  if (opt("page-id")) { page.meta.page_id = opt("page-id"); page.actif = true; }
+  writeFileSync(join(ICI, "config.json"), JSON.stringify(config, null, 2) + "\n");
+  const t = textesProfil(code);
+  console.log(JSON.stringify({ page, profil: t }, null, 2));
 
 } else if (commande === "verifier") {
   await pourChaquePage(async (page) => console.log(`✓ ${page.id} : ${await verifierMeta(page)}`));

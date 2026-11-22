@@ -12,5 +12,5 @@ const h=(t,st,...c)=>({type:t,props:{style:{display:"flex",...st},children:c.len
 const tree=h("div",{width:1080,height:1080,background:"#2546D8",position:"relative",fontFamily:"Outfit"},
   h("div",{position:"absolute",left:-43,top:4,width:1080,height:1080,transform:"scale(0.82)"},
     {type:"img",props:{src:uri,style:{position:"absolute",left:0,top:0,width:1080,height:1080}}},
-    h("div",{position:"absolute",left:640,top:560,color:"#FF8A3D",fontSize:250,fontWeight:700,letterSpacing:-6,lineHeight:1},code)));
+    h("div",{position:"absolute",left:640,top:560,color:"#FF8A3D",fontSize:code.length>2?175:250,fontWeight:700,letterSpacing:-6,lineHeight:1,marginTop:code.length>2?40:0},code)));
 fs.writeFileSync(out,new Resvg(await satori(tree,{width:1080,height:1080,fonts})).render().asPng());
