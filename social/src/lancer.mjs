@@ -12,7 +12,7 @@ import { aujourdhui, ajouterJours, jourSemaine, ecartJours, instant } from "./ou
 import { chargerSorties, selectionner, cleSerie } from "./selection.mjs";
 import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
-import { publier, verifierMeta } from "./publier.mjs";
+import { publier, verifierMeta, compteInstagram } from "./publier.mjs";
 import { preparerVitrine } from "./vitrine.mjs";
 import { nouvellePage, textesProfil } from "./departements.mjs";
 
@@ -41,6 +41,34 @@ const configPage = (page) => ({ ...config, page });
 
 let atelier, france;
 const estVitrine = (page) => page.type === "vitrine";
+
+// Les pages se citent entre elles : chaque département renvoie vers la page vitrine,
+// la vitrine cite quelques départements (à tour de rôle) qui ont un compte Instagram.
+const cacheIg = new Map();
+const igDe = async (p) => (cacheIg.has(p.id) ? cacheIg.get(p.id) : (cacheIg.set(p.id, await compteInstagram(p)), cacheIg.get(p.id)));
+const court = (p) => (p.nom || "").replace(/^(la |le |les |l’|l')/i, "");
+async function liensEntrePages(page, jour) {
+  const vitrine = config.pages.find((p) => estVitrine(p) && p.meta?.page_id);
+  if (!vitrine) return undefined;
+  if (!estVitrine(page)) {
+    const ig = await igDe(vitrine);
+    return {
+      instagram: ig ? `📍 Les sorties partout en France : @${ig}` : undefined,
+      identifier: ig ? [ig] : [],
+      facebook: `📍 Les sorties partout en France : Trucs à faire → https://www.facebook.com/${vitrine.meta.page_id}`,
+    };
+  }
+  const deps = config.pages.filter((p) => p.actif && p.departement && p.meta?.page_id);
+  if (!deps.length) return undefined;
+  const n = Math.min(5, deps.length), debut = Math.floor(Date.parse(jour) / 864e5) * n % deps.length;
+  const choix = Array.from({ length: n }, (_, i) => deps[(debut + i) % deps.length]);
+  const comptes = (await Promise.all(choix.map(igDe))).filter(Boolean);
+  return {
+    instagram: comptes.length ? `📍 Suivez aussi votre département : ${comptes.map((c) => "@" + c).join(" ")}` : undefined,
+    identifier: comptes,
+    facebook: `📍 Suivez aussi la page de votre département :\n${choix.map((p) => `• ${court(p)} → https://www.facebook.com/${p.meta.page_id}`).join("\n")}`,
+  };
+}
 const jourDePublication = (page, j) => !page.jours || page.jours.includes(jourSemaine(j));
 
 async function preparer(page, j, format, dossier, historique) {
@@ -107,7 +135,10 @@ if (commande === "preparer") {
   console.log(JSON.stringify({ page, profil: t }, null, 2));
 
 } else if (commande === "verifier") {
-  await pourChaquePage(async (page) => console.log(`✓ ${page.id} : ${await verifierMeta(page)}`));
+  await pourChaquePage(async (page) => {
+    console.log(`✓ ${page.id} : ${await verifierMeta(page)}`);
+    console.log(JSON.stringify(await liensEntrePages(page, jour), null, 1));
+  });
 
 } else if (commande === "publier") {
   const maintenant = Date.now();
@@ -121,7 +152,8 @@ if (commande === "preparer") {
     // Postiz programme chaque page à son heure ; si l'heure est passée, dans 5 minutes.
     let quand = instant(pub.jour, page.heure || "11:30", config.fuseau);
     if (new Date(quand) - maintenant < 5 * 60e3) quand = new Date(maintenant + 5 * 60e3).toISOString();
-    await publier(pub, { reseaux: config.reseaux, mode: process.env.MODE_PUBLICATION || "direct", page, quand });
+    const liens = (process.env.PILOTE || "").toLowerCase() === "meta" ? await liensEntrePages(page, pub.jour) : undefined;
+    await publier(pub, { reseaux: config.reseaux, mode: process.env.MODE_PUBLICATION || "direct", page, quand, liens });
     memoriser(h, pub);
     h["publie:" + pub.jour] = pub.jour;
     oublierVieux(h, pub.jour);

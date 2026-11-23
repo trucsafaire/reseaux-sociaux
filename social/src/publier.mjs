@@ -97,7 +97,7 @@ export async function jetonDePage(page) {
   return { jeton, fb, ig };
 }
 
-async function publierMeta(pub, { reseaux, page, collaborateurs }) {
+async function publierMeta(pub, { reseaux, page, collaborateurs, liens }) {
   const infos = await jetonDePage(page);
   JETON = infos.jeton;
   if (!JETON) throw new Error(`Page ${page.id} : impossible d'obtenir le jeton de la page`);
@@ -106,17 +106,32 @@ async function publierMeta(pub, { reseaux, page, collaborateurs }) {
   const urls = pub.images.map((f) => `${base}/${basename(f)}`);
   const res = {};
   const ig = infos.ig;
+  // Liens entre pages : mentions dans les légendes et identification sur la 1re image (sans validation à faire).
+  const ajouter = (texte, ajout) => {
+    if (!ajout) return texte;
+    const i = texte.search(/\n[^\n]*#\S+[^\n]*$/); // avant la ligne de hashtags finale
+    return i > 0 ? `${texte.slice(0, i)}\n\n${ajout}${texte.slice(i)}` : `${texte}\n\n${ajout}`;
+  };
+  const legIg = ajouter(pub.legendes.instagram, liens?.instagram);
+  const legFb = ajouter(pub.legendes.facebook, liens?.facebook);
+  const tags = liens?.identifier?.length ? { user_tags: JSON.stringify(liens.identifier.slice(0, 5).map((username, i) => ({ username, x: 0.2 + 0.15 * i, y: 0.9 }))) } : {};
   if (reseaux.includes("instagram") && !ig) console.warn(`! ${page.id} : aucun compte Instagram relié à la page, Facebook seulement`);
   if (reseaux.includes("instagram") && ig) {
     let conteneur;
     if (urls.length === 1) {
-      conteneur = (await graph(`${ig}/media`, { image_url: urls[0], caption: pub.legendes.instagram })).id;
+      conteneur = (await graph(`${ig}/media`, { image_url: urls[0], caption: legIg, ...tags })).id;
     } else {
       const enfants = [];
-      for (const u of urls) enfants.push((await graph(`${ig}/media`, { image_url: u, is_carousel_item: "true" })).id);
+      for (const [i, u] of urls.entries()) {
+        const p = { image_url: u, is_carousel_item: "true" };
+        // Si Instagram refuse l'identification, on publie quand même, sans elle.
+        enfants.push((i === 0 && tags.user_tags
+          ? await graph(`${ig}/media`, { ...p, ...tags }).catch((e) => (console.warn(`! ${page.id} : identification refusée (${e.message})`), graph(`${ig}/media`, p)))
+          : await graph(`${ig}/media`, p)).id);
+      }
       for (const id of enfants) await attendrePret(id);
       const collab = collaborateurs?.length ? { collaborators: JSON.stringify(collaborateurs) } : {};
-      conteneur = (await graph(`${ig}/media`, { media_type: "CAROUSEL", children: enfants.join(","), caption: pub.legendes.instagram, ...collab })).id;
+      conteneur = (await graph(`${ig}/media`, { media_type: "CAROUSEL", children: enfants.join(","), caption: legIg, ...collab })).id;
     }
     await attendrePret(conteneur);
     res.instagram = await graph(`${ig}/media_publish`, { creation_id: conteneur });
@@ -126,7 +141,7 @@ async function publierMeta(pub, { reseaux, page, collaborateurs }) {
     const fb = infos.fb;
     const photos = [];
     for (const u of urls) photos.push((await graph(`${fb}/photos`, { url: u, published: "false" })).id);
-    const p = { message: pub.legendes.facebook };
+    const p = { message: legFb };
     photos.forEach((id, i) => (p[`attached_media[${i}]`] = JSON.stringify({ media_fbid: id })));
     res.facebook = await graph(`${fb}/feed`, p);
     console.log(`✓ ${page.id} facebook publié`);
@@ -152,4 +167,14 @@ export async function verifierMeta(page) {
     compte = "@" + i.username;
   }
   return `page « ${r.name} » + ${compte}`;
+}
+
+// Nom du compte Instagram relié à une page (null s'il n'y en a pas) — sert aux mentions entre pages.
+export async function compteInstagram(page) {
+  try {
+    const { jeton, ig } = await jetonDePage(page);
+    if (!ig) return null;
+    const i = await fetch(`${GRAPH}/${ig}?fields=username&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
+    return i.username || null;
+  } catch { return null; }
 }
