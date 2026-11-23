@@ -5,7 +5,11 @@ name: Réseaux sociaux (publication automatique)
 # En cas d'échec, GitHub envoie un e-mail : c'est la seule chose à surveiller. Voir social/LISEZMOI.md.
 on:
   schedule:
-    - cron: "13 6 * * *"    # 7 h 13 en hiver, 8 h 13 en été (heure de Paris) ; la publication suit l'heure de chaque page
+    # GitHub retarde ou saute parfois les tâches programmées : trois créneaux de secours.
+    # Une page déjà publiée dans la journée n'est jamais republiée (historique « publie:<jour> »).
+    - cron: "13 6 * * *"    # 7 h 13 (heure d'hiver de Paris)
+    - cron: "47 7 * * *"    # 8 h 47
+    - cron: "17 9 * * *"    # 10 h 17
   workflow_dispatch:
     inputs:
       page:
