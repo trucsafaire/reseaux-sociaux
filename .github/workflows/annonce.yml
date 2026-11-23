@@ -1,0 +1,39 @@
+name: Annonce des pages départementales (ponctuel)
+# Lancement manuel : fabrique le carrousel d'annonce et le publie sur la page vitrine (Facebook + Instagram en collab).
+on:
+  workflow_dispatch:
+    inputs:
+      codes: { description: "Départements à afficher (ex. 03 58 71 44 34)", required: true }
+      avec_ig: { description: "Départements dont l'Instagram est en ligne (ex. 03,58)", required: false }
+      collabs: { description: "Comptes Instagram invités en collab (ex. trucsafaire03,trucsafaire58)", required: false }
+      essai: { description: "Essai : sans publier", type: boolean, default: false }
+permissions:
+  contents: write
+jobs:
+  annonce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PILOTE: meta
+      META_TOKEN: ${{ secrets.META_TOKEN }}
+      URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/annonce
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
+      - run: cd social && npm ci --no-audit --no-fund
+      - name: Fabriquer le carrousel
+        run: node social/src/annonce.mjs /tmp/annonce ${{ inputs.avec_ig && format('--ig {0}', inputs.avec_ig) || '' }} ${{ inputs.codes }}
+      - name: Mettre les images en ligne (branche annonce)
+        run: |
+          rm -rf /tmp/a && mkdir /tmp/a && cp /tmp/annonce/*.png /tmp/a/
+          cd /tmp/a && git init -q -b annonce && git add -A
+          git -c user.name="trucsafaire-bot" -c user.email="alertes@trucsafaire.fr" commit -qm "Annonce du $(date +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" annonce
+          sleep 20
+      - name: Publier
+        env: { ESSAI: "${{ inputs.essai && '1' || '' }}" }
+        run: node social/src/publier-annonce.mjs /tmp/annonce "${{ inputs.collabs }}"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with: { name: annonce, path: /tmp/annonce/, retention-days: 30 }

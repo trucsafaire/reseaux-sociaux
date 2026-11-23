@@ -97,7 +97,7 @@ export async function jetonDePage(page) {
   return { jeton, fb, ig };
 }
 
-async function publierMeta(pub, { reseaux, page }) {
+async function publierMeta(pub, { reseaux, page, collaborateurs }) {
   const infos = await jetonDePage(page);
   JETON = infos.jeton;
   if (!JETON) throw new Error(`Page ${page.id} : impossible d'obtenir le jeton de la page`);
@@ -115,7 +115,8 @@ async function publierMeta(pub, { reseaux, page }) {
       const enfants = [];
       for (const u of urls) enfants.push((await graph(`${ig}/media`, { image_url: u, is_carousel_item: "true" })).id);
       for (const id of enfants) await attendrePret(id);
-      conteneur = (await graph(`${ig}/media`, { media_type: "CAROUSEL", children: enfants.join(","), caption: pub.legendes.instagram })).id;
+      const collab = collaborateurs?.length ? { collaborators: JSON.stringify(collaborateurs) } : {};
+      conteneur = (await graph(`${ig}/media`, { media_type: "CAROUSEL", children: enfants.join(","), caption: pub.legendes.instagram, ...collab })).id;
     }
     await attendrePret(conteneur);
     res.instagram = await graph(`${ig}/media_publish`, { creation_id: conteneur });
