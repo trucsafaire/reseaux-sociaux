@@ -113,6 +113,26 @@
         "ig_user_id": ""
       },
       "instagram": "trucsafaire44"
+    },
+    {
+      "id": "herault",
+      "actif": true,
+      "departement": "34",
+      "nom": "l’Hérault",
+      "dans": "dans l’Hérault",
+      "heure": "11:30",
+      "hashtags": [
+        "#Hérault",
+        "#SortiesHérault",
+        "#Montpellier",
+        "#Béziers",
+        "#Sète"
+      ],
+      "meta": {
+        "page_id": "1472971982562048",
+        "ig_user_id": ""
+      },
+      "instagram": "trucsafaire34"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
