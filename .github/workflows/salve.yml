@@ -1,0 +1,54 @@
+name: Salve (publication automatique)
+# Chaque jour : le matin, stories (parole, saint, mystères du jour, appli 1 jour sur 3) + post « Évangile et méditation » ;
+# le soir, post « Une dizaine pour aujourd'hui ». Créneaux de secours : un moment déjà publié n'est jamais republié.
+on:
+  schedule:
+    - cron: "37 5 * * *"    # 6 h 37 Paris (hiver)
+    - cron: "13 7 * * *"    # secours
+    - cron: "41 16 * * *"   # 17 h 41 Paris
+    - cron: "19 18 * * *"   # secours
+  workflow_dispatch:
+    inputs:
+      moment: { description: "matin ou soir", required: true, default: "matin" }
+      essai: { description: "Essai : préparer sans publier", type: boolean, default: false }
+permissions:
+  contents: write
+concurrency: { group: salve, cancel-in-progress: false }
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      META_TOKEN: ${{ secrets.META_TOKEN }}
+      URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/salve-images
+      MOMENT: ${{ inputs.moment || (github.event.schedule == '41 16 * * *' || github.event.schedule == '19 18 * * *') && 'soir' || 'matin' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
+      - run: cd social && npm ci --no-audit --no-fund
+      - name: Récupérer l'historique
+        run: git fetch -q origin salve-images 2>/dev/null && git show origin/salve-images:historique.json > social/salve/historique.json 2>/dev/null || true
+      - name: Préparer
+        run: node social/salve/lancer.mjs preparer "$MOMENT"
+      - name: Mettre les images en ligne (branche salve-images)
+        run: |
+          rm -rf /tmp/s && mkdir -p /tmp/s/$MOMENT && cp social/salve/sortie/$MOMENT/*.png /tmp/s/$MOMENT/
+          [ -f social/salve/historique.json ] && cp social/salve/historique.json /tmp/s/ || echo '{}' > /tmp/s/historique.json
+          cd /tmp/s && git init -q -b salve-images && git add -A
+          git -c user.name="salve-bot" -c user.email="noreply@salve-rosaire.fr" commit -qm "Salve $MOMENT $(date +%F)"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" salve-images
+          sleep 15
+      - name: Publier
+        if: ${{ !inputs.essai }}
+        run: node social/salve/lancer.mjs publier "$MOMENT"
+      - name: Enregistrer l'historique
+        if: ${{ always() && !inputs.essai }}
+        run: |
+          [ -f social/salve/historique.json ] || exit 0
+          cp social/salve/historique.json /tmp/s/historique.json && cd /tmp/s && git add -A
+          git -c user.name="salve-bot" -c user.email="noreply@salve-rosaire.fr" commit -qm "Historique Salve $(date +%F)" || exit 0
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" salve-images
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with: { name: salve-${{ env.MOMENT }}, path: social/salve/sortie/, retention-days: 14, if-no-files-found: ignore }

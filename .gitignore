@@ -2,3 +2,5 @@ node_modules/
 social/sortie/
 social/historique.json
 data/
+social/salve/sortie/
+social/salve/historique.json
