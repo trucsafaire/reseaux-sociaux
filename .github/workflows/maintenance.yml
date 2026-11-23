@@ -1,0 +1,19 @@
+name: Maintenance des pages (manuel)
+# Lance une commande ponctuelle de social/src/lancer.mjs avec l'accès Meta (ex. liens-facebook, verifier).
+on:
+  workflow_dispatch:
+    inputs:
+      commande: { description: "Commande (ex. liens-facebook)", required: true }
+jobs:
+  maintenance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PILOTE: meta
+      META_TOKEN: ${{ secrets.META_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
+      - run: cd social && npm ci --no-audit --no-fund
+      - run: node social/src/lancer.mjs "${{ inputs.commande }}"

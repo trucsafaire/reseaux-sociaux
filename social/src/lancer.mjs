@@ -12,7 +12,7 @@ import { aujourdhui, ajouterJours, jourSemaine, ecartJours, instant } from "./ou
 import { chargerSorties, selectionner, cleSerie } from "./selection.mjs";
 import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
-import { publier, verifierMeta, compteInstagram } from "./publier.mjs";
+import { publier, verifierMeta, compteInstagram, jetonDePage } from "./publier.mjs";
 import { preparerVitrine } from "./vitrine.mjs";
 import { nouvellePage, textesProfil } from "./departements.mjs";
 
@@ -133,6 +133,26 @@ if (commande === "preparer") {
   writeFileSync(join(ICI, "config.json"), JSON.stringify(config, null, 2) + "\n");
   const t = textesProfil(code);
   console.log(JSON.stringify({ page, profil: t }, null, 2));
+
+} else if (commande === "liens-facebook") {
+  // Ajoute après coup le lien vers la page vitrine aux posts Facebook du jour (déjà publiés) des départements.
+  await pourChaquePage(async (page) => {
+    if (estVitrine(page)) return;
+    const ajout = (await liensEntrePages(page, jour))?.facebook;
+    const { jeton, fb } = await jetonDePage(page);
+    const G = "https://graph.facebook.com/v21.0";
+    const depuis = Math.floor(Date.parse(jour + "T00:00:00+01:00") / 1000);
+    const r = await fetch(`${G}/${fb}/posts?fields=id,message&since=${depuis}&access_token=${encodeURIComponent(jeton)}`).then((x) => x.json());
+    if (r.error) throw new Error(r.error.message);
+    for (const post of r.data || []) {
+      if (!post.message || post.message.includes(ajout)) { console.log(`${page.id} : ${post.id} déjà à jour`); continue; }
+      const i = post.message.search(/\n[^\n]*#\S+[^\n]*$/);
+      const message = i > 0 ? `${post.message.slice(0, i)}\n\n${ajout}${post.message.slice(i)}` : `${post.message}\n\n${ajout}`;
+      const m = await fetch(`${G}/${post.id}`, { method: "POST", body: new URLSearchParams({ message, access_token: jeton }) }).then((x) => x.json());
+      if (m.error) throw new Error(`${post.id} : ${m.error.message}`);
+      console.log(`✓ ${page.id} : ${post.id} modifié`);
+    }
+  });
 
 } else if (commande === "verifier") {
   await pourChaquePage(async (page) => {
