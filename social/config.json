@@ -133,6 +133,25 @@
         "ig_user_id": ""
       },
       "instagram": "trucsafaire34"
+    },
+    {
+      "id": "ain",
+      "actif": true,
+      "departement": "01",
+      "nom": "l’Ain",
+      "dans": "dans l’Ain",
+      "heure": "11:30",
+      "hashtags": [
+        "#Ain",
+        "#SortiesAin",
+        "#BourgEnBresse",
+        "#Oyonnax"
+      ],
+      "meta": {
+        "page_id": "1374900482383310",
+        "ig_user_id": ""
+      },
+      "instagram": "trucsafaire01"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
