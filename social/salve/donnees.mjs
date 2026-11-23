@@ -2,7 +2,7 @@
 const BOT = process.env.SALVE_BOT || "https://salve-bot.batiazur-mail.workers.dev";
 
 async function json(url) {
-  const r = await fetch(url, { headers: { "user-agent": "salve-reseaux/1.0" } });
+  const r = await fetch(url, { headers: { "user-agent": "Mozilla/5.0 (salve-reseaux)", origin: "https://salve-rosaire.fr", referer: "https://salve-rosaire.fr/" } });
   if (!r.ok) throw new Error(`${url} : HTTP ${r.status}`);
   return r.json();
 }
@@ -77,4 +77,9 @@ export async function donneesDuJour(jour) {
     },
     homelie,
   };
+}
+
+// Couleur liturgique du jour seule (pour le post du soir)
+export async function couleurDuJour(jour) {
+  try { return (await lectures(jour)).informations?.couleur || "vert"; } catch { return "vert"; }
 }

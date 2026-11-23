@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { donneesDuJour } from "./donnees.mjs";
+import { donneesDuJour, couleurDuJour } from "./donnees.mjs";
 import { mysteresDuJour, dizaineDuJour, jourDePub } from "./contenus.mjs";
 import { AtelierSalve, decouper } from "./visuels.mjs";
 import { publierSalve } from "./publier.mjs";
@@ -36,6 +36,8 @@ async function preparer() {
 
   if (moment === "matin") {
     const d = opt("donnees") ? JSON.parse(readFileSync(opt("donnees"), "utf8")) : await donneesDuJour(jour);
+    if (opt("couleur")) d.couleur = opt("couleur");
+    a.liturgie(d.couleur);
     // Stories
     pub.stories.push(await ecrire("story-1-parole.png", a.storyParole(d), true));
     if (d.saints.length) pub.stories.push(await ecrire("story-2-saint.png", a.storySaint(d), true));
@@ -69,6 +71,7 @@ async function preparer() {
     pub.post = { images, legendes: { instagram: corps + "\n\n" + config.hashtags.evangile, facebook: corps } };
   } else {
     const z = dizaineDuJour(jour);
+    a.liturgie(opt("couleur") || (await couleurDuJour(jour)));
     const images = [
       await ecrire("post-01.png", a.couvertureDizaine(z, jour)),
       await ecrire("post-02.png", a.meditationDizaine(z)),
