@@ -10,6 +10,7 @@ async function json(url) {
 const ENTITES = { nbsp: " ", rsquo: "’", lsquo: "‘", laquo: "«", raquo: "»", hellip: "…", amp: "&", quot: '"', apos: "'", ndash: "–", mdash: "—", oelig: "œ", OElig: "Œ", eacute: "é", egrave: "è", agrave: "à", ccedil: "ç", ecirc: "ê", ocirc: "ô", icirc: "î", ucirc: "û", acirc: "â", euml: "ë", iuml: "ï", Eacute: "É" };
 export function texteBrut(html = "") {
   return html
+    .replace(/\s*\n\s*/g, " ")
     .replace(/<sup[^>]*>.*?<\/sup>/gi, "")
     .replace(/<br\s*\/?>/gi, "\n")
     .replace(/<\/p>/gi, "\n\n")
@@ -73,7 +74,7 @@ export async function donneesDuJour(jour) {
       ref: ev.ref,
       titre: texteBrut(ev.titre || "").replace(/^«\s*|\s*»$/g, ""),
       intro: texteBrut(ev.intro_lue || "Évangile de Jésus Christ"),
-      texte: texteBrut(ev.contenu || ""),
+      texte: texteBrut(ev.contenu || "").replace(/\s*[–—-]\s*Acclamons la Parole de Dieu\.?\s*$/i, "").trim(),
     },
     homelie,
   };
