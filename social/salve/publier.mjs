@@ -20,6 +20,14 @@ async function attendrePret(id) {
   throw new Error("Instagram met trop de temps à traiter les images");
 }
 
+// Instagram répond parfois « Media ID is not available » juste après le traitement : on réessaie.
+async function publierIg(ig, c) {
+  for (let i = 0; ; i++) {
+    try { return await publierIg(ig, c); }
+    catch (e) { if (i >= 4 || !/not available|not ready|try again/i.test(e.message)) throw e; await new Promise((ok) => setTimeout(ok, 6000)); }
+  }
+}
+
 export async function publierSalve(pub, config) {
   const page = { id: "salve", meta: { page_id: config.page_id } };
   const { jeton, fb, ig } = await jetonDePage(page);
@@ -36,7 +44,7 @@ export async function publierSalve(pub, config) {
     if (ig) await essai(`story instagram ${basename(s)}`, async () => {
       const c = (await graph(`${ig}/media`, { image_url: url(s), media_type: "STORIES" })).id;
       await attendrePret(c);
-      await graph(`${ig}/media_publish`, { creation_id: c });
+      await publierIg(ig, c);
     });
     await essai(`story facebook ${basename(s)}`, async () => {
       const photo = (await graph(`${fb}/photos`, { url: url(s), published: "false" })).id;
@@ -53,7 +61,7 @@ export async function publierSalve(pub, config) {
       for (const id of enfants) await attendrePret(id);
       const c = (await graph(`${ig}/media`, { media_type: "CAROUSEL", children: enfants.join(","), caption: pub.post.legendes.instagram })).id;
       await attendrePret(c);
-      await graph(`${ig}/media_publish`, { creation_id: c });
+      await publierIg(ig, c);
     });
     await essai("post facebook", async () => {
       const photos = [];
