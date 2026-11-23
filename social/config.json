@@ -152,6 +152,26 @@
         "ig_user_id": ""
       },
       "instagram": "trucsafaire01"
+    },
+    {
+      "id": "aisne",
+      "actif": true,
+      "departement": "02",
+      "nom": "l’Aisne",
+      "dans": "dans l’Aisne",
+      "heure": "11:30",
+      "hashtags": [
+        "#Aisne",
+        "#SortiesAisne",
+        "#Laon",
+        "#SaintQuentin",
+        "#Soissons"
+      ],
+      "meta": {
+        "page_id": "1535855822935842",
+        "ig_user_id": ""
+      },
+      "instagram": "trucsafaire02"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
