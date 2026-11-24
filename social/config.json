@@ -230,6 +230,26 @@
         "ig_user_id": ""
       },
       "instagram": "trucsafaire06"
+    },
+    {
+      "id": "ardeche",
+      "actif": true,
+      "departement": "07",
+      "nom": "Ardèche",
+      "dans": "en Ardèche",
+      "heure": "11:30",
+      "hashtags": [
+        "#Ardèche",
+        "#SortiesArdèche",
+        "#Privas",
+        "#Aubenas",
+        "#Annonay"
+      ],
+      "meta": {
+        "page_id": "1455449177655888",
+        "ig_user_id": ""
+      },
+      "instagram": "trucsafaire07"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
