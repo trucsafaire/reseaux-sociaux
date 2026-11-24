@@ -94,7 +94,11 @@ const MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet
 // Résumé d'un article, coupé proprement à la phrase
 async function resume(titre, max = 720) {
   const r = await wiki({ action: "query", prop: "extracts", exintro: "1", explaintext: "1", redirects: "1", titles: titre });
-  let t = (r.query?.pages?.[0]?.extract || "").replace(/\s*\([^()]*\)/g, (m) => (m.length > 60 ? "" : m)).replace(/\s+/g, " ").trim();
+  let t = (r.query?.pages?.[0]?.extract || "")
+    .replace(/\s*\([^()]*\)/g, (m) => (m.length > 60 || /[^\u0000-\u00FF\u2019\u2013\u2014«»…œŒ]/.test(m) ? "" : m)) // parenthèses longues ou en écriture étrangère
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, (c, i, str) => c).normalize("NFC")
+    .replace(/[^\u0000-\u00FF\u2019\u2013\u2014«»…œŒ]/g, (c) => c.normalize("NFD").replace(/[\u0300-\u036f]/g, "")) // lettres non gérées par la police
+    .replace(/\s+/g, " ").replace(/\s+([.,;:])/g, (m, p) => (p === ":" ? " :" : p)).trim();
   if (t.length > max) { const coupe = t.slice(0, max); t = coupe.slice(0, Math.max(coupe.lastIndexOf(". "), coupe.lastIndexOf(" ; ")) + 1) || coupe + "…"; }
   return t;
 }
@@ -132,6 +136,7 @@ export async function saintsAvecHistoire(jour, saintsLiturgiques) {
   try {
     const c = await saintDuCalendrier(jour);
     if (c && !out.some((s) => s.nom.toLowerCase().includes(c.prenom.toLowerCase()))) {
+      if (!c.titre) c.titre = await articleSaint(`${c.prenom}`).catch(() => null);
       const histoire = c.titre ? await resume(c.titre) : "";
       const nom = c.titre ? c.titre.replace(/\s*\(.*\)$/, "") : c.prenom;
       out.push({ nom: /^(Saint|Sainte|Bienheureu)/.test(nom) ? nom : `${/a$|e$/.test(c.prenom) ? "Sainte" : "Saint"} ${nom}`, degree: "", degre: `Bonne fête aux ${c.prenom} !`, histoire, source: c.titre, calendrier: true });
