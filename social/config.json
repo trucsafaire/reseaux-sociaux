@@ -172,6 +172,25 @@
         "ig_user_id": ""
       },
       "instagram": "trucsafaire02"
+    },
+    {
+      "id": "alpes-de-haute-provence",
+      "actif": true,
+      "departement": "04",
+      "nom": "les Alpes-de-Haute-Provence",
+      "dans": "dans les Alpes-de-Haute-Provence",
+      "heure": "11:30",
+      "hashtags": [
+        "#AlpesDeHauteProvence",
+        "#SortiesAlpesDeHauteProvence",
+        "#DigneLesBains",
+        "#Manosque"
+      ],
+      "meta": {
+        "page_id": "1455318934335963",
+        "ig_user_id": ""
+      },
+      "instagram": "trucsafaire04"
     }
   ],
   "_postiz": "Laissez instagram/facebook vides : le système cherche dans Postiz un compte dont le nom contient le département (ex. « Allier »). Sinon collez l'identifiant du canal Postiz.",
