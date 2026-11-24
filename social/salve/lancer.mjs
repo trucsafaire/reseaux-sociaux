@@ -10,6 +10,7 @@ import { donneesDuJour, couleurDuJour } from "./donnees.mjs";
 import { mysteresDuJour, dizaineDuJour, jourDePub } from "./contenus.mjs";
 import { AtelierSalve, decouper } from "./visuels.mjs";
 import { publierSalve } from "./publier.mjs";
+import { storyDepuisPost } from "../src/story-post.mjs";
 
 const ICI = dirname(fileURLToPath(import.meta.url));
 const config = JSON.parse(readFileSync(join(ICI, "config.json"), "utf8"));
@@ -40,7 +41,7 @@ async function preparer() {
     a.liturgie(d.couleur);
     // Stories
     pub.stories.push(await ecrire("story-1-parole.png", a.storyParole(d), true));
-    if (d.saints.length) pub.stories.push(await ecrire("story-2-saint.png", a.storySaint(d), true));
+    for (const [i, x] of d.saints.entries()) pub.stories.push(await ecrire(`story-2-saint-${i + 1}.png`, a.storyUnSaint(d, x, i + 1, d.saints.length), true));
     pub.stories.push(await ecrire("story-3-mysteres.png", a.storyMysteres(mysteresDuJour(jour), jour), true));
     if (jourDePub(jour)) pub.stories.push(await ecrire("story-4-appli.png", a.storyAppli(), true));
 
@@ -69,6 +70,7 @@ async function preparer() {
       d.homelie ? "Méditation générée par IA à partir de l'Évangile du jour. Textes liturgiques © AELF." : "Textes liturgiques © AELF.",
     ]);
     pub.post = { images, legendes: { instagram: corps + "\n\n" + config.hashtags.evangile, facebook: corps } };
+    pub.storiesApres = [await storyDepuisPost(images[0], join(SORTIE, "story-5-post.png"), { fond: a.p.fond, texte: a.p.titre, accent: a.p.accent, haut: "L'Évangile du jour", bas: "La méditation est sur notre fil" })];
   } else {
     const z = dizaineDuJour(jour);
     a.liturgie(opt("couleur") || (await couleurDuJour(jour)));
@@ -87,6 +89,7 @@ async function preparer() {
       null,
     ]);
     pub.post = { images, legendes: { instagram: corps + "\n\n" + config.hashtags.dizaine, facebook: corps } };
+    pub.storiesApres = [await storyDepuisPost(images[0], join(SORTIE, "story-post.png"), { fond: a.p.fond, texte: a.p.titre, accent: a.p.accent, haut: "Une dizaine pour aujourd'hui", bas: "À prier sur notre fil" })];
   }
   writeFileSync(join(SORTIE, "publication.json"), JSON.stringify(pub, null, 2));
   console.log(`✓ ${moment} ${jour} : ${pub.stories.length} stories, post de ${pub.post.images.length} visuels → ${SORTIE}`);

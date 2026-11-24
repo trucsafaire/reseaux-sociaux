@@ -12,6 +12,7 @@ import { aujourdhui, ajouterJours, jourSemaine, ecartJours, instant } from "./ou
 import { chargerSorties, selectionner, cleSerie } from "./selection.mjs";
 import { Atelier } from "./visuels.mjs";
 import { legendes } from "./textes.mjs";
+import { storyDepuisPost } from "./story-post.mjs";
 import { publier, verifierMeta, compteInstagram, jetonDePage } from "./publier.mjs";
 import { preparerVitrine } from "./vitrine.mjs";
 import { nouvellePage, textesProfil } from "./departements.mjs";
@@ -76,6 +77,7 @@ async function preparer(page, j, format, dossier, historique) {
     rmSync(dossier, { recursive: true, force: true });
     france ??= chargerSorties(DONNEES, { departements: JSON.parse(readFileSync(join(DONNEES, "departements.json"), "utf8")).departements.map((d) => d.code) });
     const pub = await preparerVitrine({ racine: DEPOT, toutes: france, jour: j, page, historique, dossier, theme: opt("theme") });
+    pub.story = await storyDepuisPost(pub.images[0], join(dossier, `${j}-${page.id}-story.png`));
     writeFileSync(join(dossier, "publication.json"), JSON.stringify(pub, null, 2));
     writeFileSync(join(dossier, "instagram.txt"), pub.legendes.instagram);
     writeFileSync(join(dossier, "facebook.txt"), pub.legendes.facebook);
@@ -90,6 +92,7 @@ async function preparer(page, j, format, dossier, historique) {
   const images = await atelier.produire(sel, cfg, dossier, `${j}-${page.id}-`); // nom unique : évite les caches
   const pub = { page: page.id, jour: j, format: sel.format, demande: format, images, legendes: legendes(sel, cfg),
     sorties: sel.sorties.map((e) => ({ id: e.id, cle: e._cle, serie: cleSerie(e.t), t: e.t, s: e.s, w: e.w })) };
+  pub.story = await storyDepuisPost(images[0], join(dossier, `${j}-${page.id}-story.png`));
   writeFileSync(join(dossier, "publication.json"), JSON.stringify(pub, null, 2));
   writeFileSync(join(dossier, "instagram.txt"), pub.legendes.instagram);
   writeFileSync(join(dossier, "facebook.txt"), pub.legendes.facebook);

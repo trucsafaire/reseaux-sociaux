@@ -206,6 +206,20 @@ export class AtelierSalve {
       h("div", { marginBottom: 80, fontFamily: "Crimson", fontStyle: "italic", fontSize: 44, color: this.p.accent }, s.every((x) => /^(Saint|Sainte|Saints|Saintes|Bienheureu)/.test(x.nom)) ? (s.length === 1 && s[0].nom.length < 42 ? `${s[0].nom.replace(/,.*$/, "")}, priez pour nous.` : "Priez pour nous.") : "Prions avec toute l'Église."),
     ], d.couleur);
   }
+  // Une story par saint, avec son histoire
+  storyUnSaint(d, x, n, total) {
+    const long = (x.histoire || "").length;
+    return this.story([
+      h("div", { marginTop: 60, justifyContent: "space-between", alignItems: "center" }, this.marque(40), h("div", { fontSize: 30, color: this.p.doux }, total > 1 ? `${dateLongue(d.jour)} · ${n}/${total}` : dateLongue(d.jour))),
+      h("div", { marginTop: 90, fontSize: 32, color: this.p.accent, fontWeight: 600, letterSpacing: 2 }, x.calendrier ? "LE SAINT DU CALENDRIER" : "LE SAINT DU JOUR"),
+      h("div", { marginTop: 26, fontFamily: "Crimson", fontWeight: 600, fontSize: x.nom.length > 34 ? 72 : 88, lineHeight: 1.05, color: this.p.titre }, x.nom),
+      x.degre ? h("div", { marginTop: 14, fontSize: 30, color: this.p.doux }, x.degre) : null,
+      x.histoire ? h("div", { marginTop: 50, fontSize: long > 560 ? 33 : 37, lineHeight: 1.5, color: this.p.texte }, x.histoire) : null,
+      h("div", { marginTop: "auto", marginBottom: 70, flexDirection: "column" },
+        h("div", { fontFamily: "Crimson", fontStyle: "italic", fontSize: 46, color: this.p.accent }, /^(Saint|Sainte|Bienheureu)/.test(x.nom) ? `${x.nom.replace(/,.*$/, "")}, priez pour nous.` : "Prions avec toute l'Église."),
+        x.histoire ? h("div", { marginTop: 18, fontSize: 22, color: this.p.doux }, "Histoire : Wikipédia (CC BY-SA)") : null),
+    ], d.couleur);
+  }
   storyMysteres(m, jour) {
     const { nomJour } = laDate(jour);
     return this.story([

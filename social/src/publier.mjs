@@ -146,6 +146,28 @@ async function publierMeta(pub, { reseaux, page, collaborateurs, liens }) {
     res.facebook = await graph(`${fb}/feed`, p);
     console.log(`✓ ${page.id} facebook publié`);
   }
+  // Le post du jour est aussi relayé en story (Facebook et Instagram) ; un échec ici ne bloque pas le reste.
+  if (pub.story) {
+    const su = `${base}/${basename(pub.story)}`;
+    if (ig) try {
+      const c = (await graph(`${ig}/media`, { image_url: su, media_type: "STORIES" })).id;
+      for (let i = 0; i < 20; i++) {
+        const st = await fetch(`${GRAPH}/${c}?fields=status_code&access_token=${encodeURIComponent(JETON)}`).then((x) => x.json());
+        if (st.status_code === "FINISHED") break;
+        await new Promise((ok) => setTimeout(ok, 3000));
+      }
+      for (let i = 0; ; i++) {
+        try { res.storyInstagram = await graph(`${ig}/media_publish`, { creation_id: c }); break; }
+        catch (e) { if (i >= 4) throw e; await new Promise((ok) => setTimeout(ok, 6000)); }
+      }
+      console.log(`✓ ${page.id} story instagram publiée`);
+    } catch (e) { console.warn(`! ${page.id} story instagram : ${e.message}`); }
+    try {
+      const photo = (await graph(`${infos.fb}/photos`, { url: su, published: "false" })).id;
+      res.storyFacebook = await graph(`${infos.fb}/photo_stories`, { photo_id: photo });
+      console.log(`✓ ${page.id} story facebook publiée`);
+    } catch (e) { console.warn(`! ${page.id} story facebook : ${e.message}`); }
+  }
   return res;
 }
 
