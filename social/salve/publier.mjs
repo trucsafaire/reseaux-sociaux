@@ -23,7 +23,7 @@ async function attendrePret(id) {
 // Instagram répond parfois « Media ID is not available » juste après le traitement : on réessaie.
 async function publierIg(ig, c) {
   for (let i = 0; ; i++) {
-    try { return await publierIg(ig, c); }
+    try { return await graph(`${ig}/media_publish`, { creation_id: c }); }
     catch (e) { if (i >= 4 || !/not available|not ready|try again/i.test(e.message)) throw e; await new Promise((ok) => setTimeout(ok, 6000)); }
   }
 }

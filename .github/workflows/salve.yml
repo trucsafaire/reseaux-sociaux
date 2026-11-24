@@ -7,6 +7,9 @@ on:
     - cron: "13 7 * * *"    # secours
     - cron: "41 16 * * *"   # 17 h 41 Paris
     - cron: "19 18 * * *"   # secours
+    - cron: "3 9 * * *"     # secours matin
+    - cron: "29 11 * * *"   # secours matin
+    - cron: "53 19 * * *"   # secours soir
   workflow_dispatch:
     inputs:
       moment: { description: "matin ou soir", required: true, default: "matin" }
@@ -21,12 +24,18 @@ jobs:
     env:
       META_TOKEN: ${{ secrets.META_TOKEN }}
       URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/salve-images
-      MOMENT: ${{ inputs.moment || (github.event.schedule == '41 16 * * *' || github.event.schedule == '19 18 * * *') && 'soir' || 'matin' }}
+      MOMENT: ${{ inputs.moment || '' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm, cache-dependency-path: social/package-lock.json }
       - run: cd social && npm ci --no-audit --no-fund
+      - name: Choisir le moment (matin / soir) selon l'heure de Paris
+        if: ${{ !inputs.moment }}
+        run: |
+          # GitHub lance parfois les tâches programmées avec des heures de retard : on se fie à l'heure réelle.
+          H=$(TZ=Europe/Paris date +%H)
+          if [ "$H" -lt 15 ]; then echo "MOMENT=matin" >> $GITHUB_ENV; else echo "MOMENT=soir" >> $GITHUB_ENV; fi
       - name: Récupérer l'historique
         run: git fetch -q origin salve-images 2>/dev/null && git show origin/salve-images:historique.json > social/salve/historique.json 2>/dev/null || true
       - name: Préparer

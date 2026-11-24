@@ -10,6 +10,8 @@ on:
     - cron: "13 6 * * *"    # 7 h 13 (heure d'hiver de Paris)
     - cron: "47 7 * * *"    # 8 h 47
     - cron: "17 9 * * *"    # 10 h 17
+    - cron: "41 10 * * *"   # secours (GitHub retarde parfois ses tâches de plusieurs heures)
+    - cron: "9 13 * * *"    # secours
   workflow_dispatch:
     inputs:
       page:
