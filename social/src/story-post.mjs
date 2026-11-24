@@ -26,7 +26,9 @@ const h = (type, style = {}, ...enfants) => {
  */
 export async function storyDepuisPost(image, sortie, o = {}) {
   const fond = o.fond || "#2546D8", texte = o.texte || "#FFFFFF", accent = o.accent || "#FF8A3D";
-  const src = "data:image/png;base64," + readFileSync(image).toString("base64");
+  const octets = readFileSync(image);
+  const mime = octets[0] === 0xff && octets[1] === 0xd8 ? "image/jpeg" : "image/png";
+  const src = `data:${mime};base64,` + octets.toString("base64");
   const arbre = h("div", { width: 1080, height: 1920, background: fond, flexDirection: "column", alignItems: "center", justifyContent: "center", fontFamily: "Inter" },
     h("div", { fontSize: 46, fontWeight: 700, color: texte, marginBottom: 46, letterSpacing: 1 }, o.haut || "Nouvelle publication"),
     h("div", { borderRadius: 36, overflow: "hidden", boxShadow: "0 30px 80px rgba(0,0,0,0.35)", border: `6px solid ${texte}` },

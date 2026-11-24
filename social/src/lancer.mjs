@@ -137,6 +137,35 @@ if (commande === "preparer") {
   const t = textesProfil(code);
   console.log(JSON.stringify({ page, profil: t }, null, 2));
 
+} else if (commande === "relayer-stories") {
+  // Rattrapage : relaie en story le post déjà publié aujourd'hui sur chaque page (Facebook + Instagram).
+  const G = "https://graph.facebook.com/v21.0";
+  const { mkdtempSync } = await import("node:fs");
+  const tmp = mkdtempSync("/tmp/relais-");
+  await pourChaquePage(async (page) => {
+    const { jeton, fb, ig } = await jetonDePage(page);
+    const q = (u, o) => fetch(u, o).then((x) => x.json()).then((r) => { if (r.error) throw new Error(r.error.message); return r; });
+    const posts = await q(`${G}/${fb}/posts?fields=full_picture,created_time&limit=3&access_token=${encodeURIComponent(jeton)}`);
+    const post = (posts.data || []).find((x) => x.full_picture && new Date(x.created_time) > new Date(Date.now() - 20 * 3600e3));
+    if (!post) { console.log(`${page.id} : pas de post récent`); return; }
+    const img = Buffer.from(await fetch(post.full_picture).then((r) => r.arrayBuffer()));
+    const brut = join(tmp, `${page.id}.img`); writeFileSync(brut, img);
+    const story = await storyDepuisPost(brut, join(tmp, `${page.id}-story.png`));
+    const form = new FormData();
+    form.append("source", new Blob([readFileSync(story)], { type: "image/png" }), "story.png");
+    form.append("published", "false"); form.append("access_token", jeton);
+    const photo = await q(`${G}/${fb}/photos`, { method: "POST", body: form });
+    await q(`${G}/${fb}/photo_stories`, { method: "POST", body: new URLSearchParams({ photo_id: photo.id, access_token: jeton }) });
+    console.log(`✓ ${page.id} story facebook`);
+    if (ig) {
+      const url = (await q(`${G}/${photo.id}?fields=images&access_token=${encodeURIComponent(jeton)}`)).images?.[0]?.source;
+      const c = await q(`${G}/${ig}/media`, { method: "POST", body: new URLSearchParams({ image_url: url, media_type: "STORIES", access_token: jeton }) });
+      for (let i = 0; i < 20; i++) { const st = await q(`${G}/${c.id}?fields=status_code&access_token=${encodeURIComponent(jeton)}`); if (st.status_code === "FINISHED") break; await new Promise((ok) => setTimeout(ok, 3000)); }
+      for (let i = 0; ; i++) { try { await q(`${G}/${ig}/media_publish`, { method: "POST", body: new URLSearchParams({ creation_id: c.id, access_token: jeton }) }); break; } catch (e) { if (i >= 4) throw e; await new Promise((ok) => setTimeout(ok, 6000)); } }
+      console.log(`✓ ${page.id} story instagram`);
+    }
+  });
+
 } else if (commande === "liens-facebook") {
   // Ajoute après coup le lien vers la page vitrine aux posts Facebook du jour (déjà publiés) des départements.
   await pourChaquePage(async (page) => {

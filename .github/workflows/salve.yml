@@ -14,6 +14,7 @@ on:
     inputs:
       moment: { description: "matin ou soir", required: true, default: "matin" }
       essai: { description: "Essai : préparer sans publier", type: boolean, default: false }
+      complement: { description: "Rattrapage : seulement les stories des saints et le relais du post", type: boolean, default: false }
 permissions:
   contents: write
 concurrency: { group: salve, cancel-in-progress: false }
@@ -50,7 +51,7 @@ jobs:
           sleep 15
       - name: Publier
         if: ${{ !inputs.essai }}
-        run: node social/salve/lancer.mjs publier "$MOMENT"
+        run: node social/salve/lancer.mjs publier "$MOMENT" ${{ inputs.complement && '--complement' || '' }}
       - name: Enregistrer l'historique
         if: ${{ always() && !inputs.essai }}
         run: |

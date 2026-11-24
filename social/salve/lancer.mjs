@@ -100,6 +100,12 @@ async function publier() {
   if (!existsSync(f)) throw new Error("rien de préparé");
   if (!config.page_id) { console.warn("! Salve : page_id manquant dans social/salve/config.json, rien n'est publié"); return; }
   const pub = JSON.parse(readFileSync(f, "utf8"));
+  if (reste.includes("--complement")) {
+    pub.stories = pub.stories.filter((f) => /story-2-saint/.test(f));
+    pub.post = null;
+    await publierSalve(pub, config);
+    return;
+  }
   const histo = lireHisto();
   const cle = `${pub.moment}:${pub.jour}`;
   if (histo[cle] && !reste.includes("--forcer")) { console.log(`Salve ${cle} : déjà publié`); return; }
