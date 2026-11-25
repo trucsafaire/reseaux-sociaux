@@ -1,5 +1,6 @@
 {
-  "_note": "page_id : identifiant de la Page Facebook Bati Azur Piscine (à renseigner une fois la page ajoutée au portefeuille et Publieur affecté). Vide = préparation sans publication.",
-  "page_id": "",
-  "ig_user_id": ""
+  "_note": "Page Facebook Bati Azur Piscine, dans le portefeuille Meta « Bati Azur » (280851343755023). Jeton : secret META_TOKEN_BATIAZUR (utilisateur système Publieur Bati Azur).",
+  "page_id": "1106986629166023",
+  "ig_user_id": "",
+  "portefeuille": "280851343755023"
 }
