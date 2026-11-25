@@ -1,6 +1,8 @@
-node_modules/
-social/sortie/
-social/historique.json
 data/
-social/salve/sortie/
+node_modules/
+social/batiazur/historique.json
+social/batiazur/sortie/
+social/historique.json
 social/salve/historique.json
+social/salve/sortie/
+social/sortie/
