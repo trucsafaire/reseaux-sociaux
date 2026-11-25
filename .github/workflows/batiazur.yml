@@ -20,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      META_TOKEN: ${{ secrets.META_TOKEN }}
+      # Portefeuille Meta propre à Bati Azur : son jeton (META_TOKEN_BATIAZUR) passe avant celui de Trucs à faire.
+      META_TOKEN: ${{ secrets.META_TOKEN_BATIAZUR || secrets.META_TOKEN }}
       URL_IMAGES: https://raw.githubusercontent.com/${{ github.repository }}/batiazur-images
       MOMENT: ${{ inputs.moment || 'meteo' }}
     steps:
