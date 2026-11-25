@@ -37,6 +37,7 @@ if (commande === "preparer") {
 
 } else if (commande === "publier") {
   if (histo[cle] && !opt("forcer")) { console.log(`Déjà publié (${cle}), rien à faire.`); process.exit(0); }
+  if (process.env.JETON_BATIAZUR === "false") { console.log("! secret META_TOKEN_BATIAZUR absent : visuels préparés, rien publié."); process.exit(0); }
   if (!config.page_id) { console.log("! page_id Bati Azur vide dans config.json : visuels préparés, rien publié."); process.exit(0); }
   const pub = JSON.parse(readFileSync(join(dossier, "publication.json"), "utf8"));
   if (pub.jour !== jour) throw new Error(`publication préparée pour ${pub.jour}, pas pour aujourd'hui`);
